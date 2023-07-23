@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
 from bankapp import views
+from users.views import UserView
 
 
 
@@ -24,6 +25,7 @@ from bankapp import views
 
 router = routers.DefaultRouter()
 router.register(r'bankdata-api', views.bankDataView, 'bankapp')
+# router.register(r'users-api', UserView, 'users')
 # router.register(r'ppdata-api', views.ppDataView, 'bankapp')
 
 
