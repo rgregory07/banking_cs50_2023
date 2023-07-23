@@ -1,0 +1,16 @@
+.dropzone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(91, 114, 183);
+  border-radius: 20px;
+  //   border: 2px dashed green;
+  color: white;
+  width: 50%;
+  height: 3rem;
+  margin: 0 auto 2rem auto;
+}
+
+.drag-highlight {
+  background-color: var(--clr-main);
+}

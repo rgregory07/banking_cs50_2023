@@ -1,0 +1,33 @@
+.form-container {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 70%;
+    border: 1px solid var(--clr-light-gray);
+    border-radius: 6px;
+    // background-color: aqua;
+    margin: auto;
+    padding: 20px;
+    font-size: 1.2rem;
+        & > div {
+            grid-column: span 4;
+            
+        }
+
+        & label {
+            color: var(--clr-main-dark);
+        }
+
+        & input {
+            background-color: var(--clr-light-gray);
+            padding: 10px;
+            font-size: 1rem;
+            border: thin solid var(--clr-med-gray);
+            border-radius: 6px;
+        }
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+}

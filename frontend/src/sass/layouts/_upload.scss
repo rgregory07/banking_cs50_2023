@@ -1,0 +1,28 @@
+.table-upload td {
+  border: 1px solid var(--clr-main-light);
+  padding: 7px;
+  // border-collapse: collapse;
+  // width: 90%;
+}
+
+.table-headers {
+  color: var(--clr-main);
+}
+
+.upload-container {
+  width: 90%;
+  margin: auto;
+}
+
+.table-upload {
+  border-collapse: collapse;
+  margin: auto;
+  justify-items: center;
+}
+
+.checkbox {
+  & input {
+    display: flex;
+    margin: auto;
+  }
+}
