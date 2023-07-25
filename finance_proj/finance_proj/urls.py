@@ -25,7 +25,7 @@ from users.views import UserView
 
 router = routers.DefaultRouter()
 router.register(r'bankdata-api', views.bankDataView, 'bankapp')
-# router.register(r'users-api', UserView, 'users')
+router.register(r'users-api', UserView)
 # router.register(r'ppdata-api', views.ppDataView, 'bankapp')
 
 
@@ -36,7 +36,7 @@ urlpatterns = [
     path('bankapp/', include('bankapp.urls')),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('account/', include('users.urls'))
+    path('users/', include('users.urls'))
     
 ]
 

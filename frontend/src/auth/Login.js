@@ -54,58 +54,50 @@ const Login = () => {
 
   return (
     <>
-      {success ? (
-        <div>
-          <h1>You are logged in!</h1>
-          <br />
-          <p>Go To home</p>
-        </div>
-      ) : (
-        <div>
-          <p ref={errorRef} className={errorMsg ? "error-message" : "hidden"}>
-            {errorMsg}
-          </p>
-          <h1>Login</h1>
-          <form onSubmit={handleSubmit}>
-            <div className="form-container">
-              <div className="input-container">
-                <label htmlFor="username">Username:</label>
-                <input
-                  type="text"
-                  id="username"
-                  ref={userRef}
-                  autoComplete="off"
-                  onChange={(e) => setUser(e.target.value)}
-                  value={user}
-                  required
-                />
-              </div>
-              <div className="input-container">
-                <label htmlFor="password">Password:</label>
-                <input
-                  type="password"
-                  id="password"
-                  onChange={(e) => setPassword(e.target.value)}
-                  value={password}
-                  required
-                />
-              </div>
-              <button className="btn-main">Sign In</button>
+      <div>
+        <h1>Login</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="form-container">
+            <div className="input-container">
+              <label htmlFor="username">Username:</label>
+              <input
+                type="text"
+                id="username"
+                ref={userRef}
+                autoComplete="off"
+                onChange={(e) => setUser(e.target.value)}
+                value={user}
+                required
+              />
             </div>
-          </form>
-          <div>
-            <div className="flex-down mt-2 justify-center align-center text-center">
-              <p>
-                Don't have an account?
-                <br />
-                <span>
-                  <Link to={"/register"}>Register</Link>
-                </span>
-              </p>
+            <div className="input-container">
+              <label htmlFor="password">Password:</label>
+              <input
+                type="password"
+                id="password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                required
+              />
             </div>
+            <button className="btn-main">Sign In</button>
+            <p ref={errorRef} className={errorMsg ? "error-message" : "hidden"}>
+              {errorMsg}
+            </p>
+          </div>
+        </form>
+        <div>
+          <div className="flex-down mt-2 justify-center align-center text-center">
+            <p>
+              Don't have an account?
+              <br />
+              <span>
+                <Link to={"/register"}>Register</Link>
+              </span>
+            </p>
           </div>
         </div>
-      )}
+      </div>
     </>
   );
 };

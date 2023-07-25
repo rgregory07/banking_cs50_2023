@@ -71,16 +71,19 @@ const Dashboard = () => {
     .toLocaleString();
 
   const pebblesExpense = bankData.filter(function (item) {
-    return item.category === "Pebbles & Pine";
+    return item.category === "Pebbles & Pine" && item.amount !== null;
   });
+  console.log(pebblesExpense);
   const ppExpenseSum = pebblesExpense
     .reduce((acc, value) => acc + parseFloat(value.amount), 0)
     .toLocaleString();
+
+  console.log(ppExpenseSum);
   const ppExpenseSumNum =
     pebblesExpense
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(2) * -1;
-
+  console.log(ppExpenseSumNum);
   const ppProfit = (ppIncomeSumNum - ppExpenseSumNum).toLocaleString();
 
   return (

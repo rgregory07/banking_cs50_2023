@@ -9,13 +9,15 @@ function Profile() {
 
   // API Get
   useEffect(() => {
-    axios.get("/account/users/").then((response) => {
+    axios.get("http://localhost:8000/users/users/").then((response) => {
       setProfile(response.data);
+      setUser(response.data[0].username);
     });
   }, []);
 
   useEffect(() => {
     console.log(profile);
+    console.log(user);
   }, [profile]);
 
   return (
@@ -34,7 +36,7 @@ function Profile() {
         <Typography variant="h3" fontSize={"25px"}>
           Personal Info
         </Typography>
-        <Typography>Name: </Typography>
+        <Typography>Username: {user}</Typography>
         <Typography>email: </Typography>
       </Box>
 

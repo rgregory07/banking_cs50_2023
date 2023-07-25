@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Formik, Field, useField, ErrorMessage } from "formik";
 import * as yup from "yup";
 import axios from "axios";
+import TaskAltIcon from "@mui/icons-material/TaskAlt";
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
 // username parameters
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
@@ -62,26 +64,32 @@ const Register = () => {
     setSuccess(true);
   };
 
-  //   useEffect(() => {
-  //     success && console.log("Success!");
-  //     axios.post(
-  //       `http://localhost:8000/api/users-api/`,
-  //       {
-  //         username: { user },
-  //         password: { password },
-  //       },
-  //       { headers: { "Content-Type": "application/json" } }
-  //     );
-  //   }, [success]);
+  useEffect(() => {
+    success && console.log("Success!");
+    try {
+      axios.post(
+        `http://localhost:8000/users/users/`,
+        {
+          username: { user },
+          password: { password },
+        },
+        { headers: { "Content-Type": "application/json" } }
+      );
+    } catch (error) {
+      console.log(error.response);
+    }
+  }, [success]);
 
   console.log(user, validName);
   return (
     <>
       {success ? (
         <div>
-          <h1>You are logged in!</h1>
+          <h1>You are Registered!</h1>
           <br />
-          <p>Go To home</p>
+          <span>
+            <Link to={"/"}>Go to Dashboard</Link>
+          </span>
         </div>
       ) : (
         <div>
@@ -92,7 +100,15 @@ const Register = () => {
           <form onSubmit={handleSubmit}>
             <div className="form-container">
               <div className="input-container">
-                <label htmlFor="username">Username:</label>
+                <label htmlFor="username">
+                  Username
+                  <span className={validName ? "valid" : "hide"}>
+                    <TaskAltIcon />
+                  </span>
+                  <span className={validName || !user ? "hide" : "invalid"}>
+                    <HighlightOffIcon />
+                  </span>
+                </label>
                 <input
                   type="text"
                   id="username"
@@ -100,13 +116,31 @@ const Register = () => {
                   autoComplete="off"
                   onChange={(e) => setUser(e.target.value)}
                   required
-                  pattern="^[a-zA-Z][a-zA-Z0-9-_]{3, 23}$"
+                  pattern="^[a-zA-Z][a-zA-Z0-9-_]{3, 19}$"
                   onFocus={() => setUserFocus(true)}
                   onBlur={() => setUserFocus(false)}
                 />
+                <p
+                  id="username-instructions"
+                  className={
+                    userFocus && user && !validName ? "instructions" : "hide"
+                  }
+                >
+                  4 - 20 Characters
+                  <br />
+                  Letters, Numbers, Hyphens & Unserscores are allowed{" "}
+                </p>
               </div>
               <div className="input-container">
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="password">
+                  Password
+                  <span className={validPassword ? "valid" : "hide"}>
+                    <TaskAltIcon />
+                  </span>
+                  <span className={validPassword || !user ? "hide" : "invalid"}>
+                    <HighlightOffIcon />
+                  </span>
+                </label>
                 <input
                   type="password"
                   id="password"
@@ -115,9 +149,34 @@ const Register = () => {
                   onFocus={() => setPasswordFocus(true)}
                   onBlur={() => setPasswordFocus(false)}
                 />
+                <p
+                  id="username-instructions"
+                  className={
+                    passwordFocus && password && !validPassword
+                      ? "instructions"
+                      : "hide"
+                  }
+                >
+                  8 - 24 Characters
+                  <br />
+                  Must include uppercase and lowecase letters, a number, and a
+                  special character.
+                  <br />
+                  Special characters include: !@#$%
+                </p>
               </div>
               <div className="input-container">
-                <label htmlFor="confirm-password">Confirm Password:</label>
+                <label htmlFor="confirm-password">
+                  Confirm Password
+                  <span className={validMatch ? "valid" : "hide"}>
+                    <TaskAltIcon />
+                  </span>
+                  <span
+                    className={validMatch || !password ? "hide" : "invalid"}
+                  >
+                    <HighlightOffIcon />
+                  </span>
+                </label>
                 <input
                   type="password"
                   id="confirm-password"
