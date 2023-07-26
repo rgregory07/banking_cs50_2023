@@ -58,27 +58,46 @@ const Register = () => {
     setErrorMsg("");
   }, [user, password, matchPassword]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log(user, password);
-    setSuccess(true);
-  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   console.log(user, password);
+  //   setSuccess(true);
+  // };
 
-  useEffect(() => {
-    success && console.log("Success!");
-    try {
-      axios.post(
-        `http://localhost:8000/users/users/`,
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let url = `http://localhost:8000/users/users/`;
+    axios
+      .post(
+        url,
         {
           username: { user },
           password: { password },
         },
         { headers: { "Content-Type": "application/json" } }
-      );
-    } catch (error) {
-      console.log(error.response);
-    }
-  }, [success]);
+      )
+      .then((response) => {
+        console.log(response.data);
+        setSuccess(true);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  // useEffect(() => {
+  //   success && console.log("Success!");
+  //   try {
+  //     axios.post(
+  //       `http://localhost:8000/users/users/`,
+  //       {
+  //         username: { user },
+  //         password: { password },
+  //       },
+  //       { headers: { "Content-Type": "application/json" } }
+  //     );
+  //   } catch (error) {
+  //     console.log(error.response);
+  //   }
+  // }, [success]);
 
   console.log(user, validName);
   return (

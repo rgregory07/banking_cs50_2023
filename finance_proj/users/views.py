@@ -8,17 +8,17 @@ from .serializers import *
 
 
 # Create your views here.
-class UserView(APIView):
-     def get(self, request):
-          output = [{"username": output.username}
-                     for output in User.objects.all()]
-          return Response(output)
+# class UserView(APIView):
+#      def get(self, request):
+#           output = [{"username": output.username}
+#                      for output in User.objects.all()]
+#           return Response(output)
      
-#      def post(self, request):
-#           serializer = UserSerializer(data=request.data)
-#           if serializer.is_valid(raise_exception = True):
-#                serializer.save()
-#                return Response(serializer.data)
+    #  def post(self, request):
+    #       serializer = UserSerializer(data=request.data)
+    #       if serializer.is_valid(raise_exception = True):
+    #            serializer.save()
+    #            return Response(serializer.data)
 
 class UserView(viewsets.ModelViewSet):
     queryset = User.objects.all()
