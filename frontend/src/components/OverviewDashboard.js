@@ -1,20 +1,22 @@
-import React from "react";
-import { Box, Typography } from "@mui/material";
+import React from 'react'
+import { Box, Typography } from '@mui/material'
 
-const OverviewDashboard = ({ title, subTitle, total }) => {
+const OverviewDashboard = ({ title, color, total }) => {
   return (
-    <Box>
-      <Typography variant="h6" color="var(--clr-main)" fontWeight="bold">
+    <div className='dash-pp-headers'>
+      <Typography
+        variant='h6'
+        color='var(--clr-main)'
+        fontWeight='200'
+        textTransform='uppercase'
+      >
         {title}
       </Typography>
-      <Typography variant="p" color="var(--clr-darg-gray)">
-        {subTitle}
+      <Typography variant='h5' color={color} fontWeight='400'>
+        {total}
       </Typography>
-      <Typography variant="h4" color="var(--clr-accent)" fontWeight="bold">
-        ${total}
-      </Typography>
-    </Box>
-  );
-};
+    </div>
+  )
+}
 
-export default OverviewDashboard;
+export default OverviewDashboard

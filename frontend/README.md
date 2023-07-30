@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Personal Finance App - CS50 Final Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### Video Demo: <URL HERE>
 
-## Available Scripts
+#### Description: This web app was created for tracking and categorizing personal finances.
 
-In the project directory, you can run:
+## Overview
 
-### `npm start`
+This Personal Finance App is built using React / Django / PostgreSQL.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## About The Project
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+I used to use Quickbooks Online for tracking my finances, and it was a very helpfull tool in order to see Income/Expense amounts. I also used it for tax season to organize expenses. That is why I created this app, as a challenge for myself, while also creating something I will actully use on a regular basis.
 
-### `npm test`
+This app does not have all the functionality of Quickbooks. There is a lot of room to expand but this is at a stage that meets my needs.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `npm run build`
+- Dashboard
+- Sort by Date Range
+- Add Categories & Subcategories to each transaction
+- Manually Input Transactions
+- Upload CSV Data from Bank Accounts
+- Multiple Charts for viewing data
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Dashboard
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The Dashboard gives a quick overview of Income & Expense totals. The default use every transaction in the database, but you can also filter by date range.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Date Range Picker** uses the Material MUI Date Picker Component.
 
-### `npm run eject`
+- **Total Income** sums all income sources
+- **Savings** sums all transactions in the Savings Category
+- T-Shirt Company
+  - **Income** sums all transactions from the Income Category, and Pebbles & Pine sub-category
+  - **Expenses** sums all transactions in the Pebbles & Pine category
+  - **Profit/Less** sums the difference between **Income** & **Expenses**. The color will also adjust to be green if the number is > 0, and red if it is < 0
+- Daycare
+- **Parent 1/2/3** sums the total of each daycare parent
+- **Total** sums all daycare income from all parents
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Cateegorize Bank Data
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Bank data is displayed in a table using AG-Grid
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Manual Transaction Entry
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### CSV Upload
 
-## Learn More
+### Charts
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Future Features
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### User Model
 
-### Code Splitting
+I have started working on a user model in order to provide login/privacy. The Front End logic has been written and does include authorization, errors, etc, but I have not yet created a proper user model, which will also require some refactoring of the bank data to keep it related to a specific user.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Custom Category Names
 
-### Analyzing the Bundle Size
+Currently the Category and Subcategory lists are hard coded. I plan to add the ability for the end user to customize the list to fit their own personal needs.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Customize Dashboard
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I plan to give the end user the ability to customize the dashboard to sort and display the Categories or their choosing.

@@ -58,21 +58,16 @@ const Register = () => {
     setErrorMsg("");
   }, [user, password, matchPassword]);
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   console.log(user, password);
-  //   setSuccess(true);
-  // };
-
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(typeof (user, password));
     let url = `http://localhost:8000/users/users/`;
     axios
       .post(
         url,
         {
-          username: { user },
-          password: { password },
+          username: user,
+          password: password,
         },
         { headers: { "Content-Type": "application/json" } }
       )
@@ -82,22 +77,6 @@ const Register = () => {
       })
       .catch((err) => console.log(err));
   };
-
-  // useEffect(() => {
-  //   success && console.log("Success!");
-  //   try {
-  //     axios.post(
-  //       `http://localhost:8000/users/users/`,
-  //       {
-  //         username: { user },
-  //         password: { password },
-  //       },
-  //       { headers: { "Content-Type": "application/json" } }
-  //     );
-  //   } catch (error) {
-  //     console.log(error.response);
-  //   }
-  // }, [success]);
 
   console.log(user, validName);
   return (
@@ -135,6 +114,7 @@ const Register = () => {
                   autoComplete="off"
                   onChange={(e) => setUser(e.target.value)}
                   required
+                  value={user}
                   pattern="^[a-zA-Z][a-zA-Z0-9-_]{3, 19}$"
                   onFocus={() => setUserFocus(true)}
                   onBlur={() => setUserFocus(false)}
@@ -165,6 +145,7 @@ const Register = () => {
                   id="password"
                   onChange={(e) => setPassword(e.target.value)}
                   required
+                  value={password}
                   onFocus={() => setPasswordFocus(true)}
                   onBlur={() => setPasswordFocus(false)}
                 />
@@ -201,6 +182,7 @@ const Register = () => {
                   id="confirm-password"
                   onChange={(e) => setMatchPassword(e.target.value)}
                   required
+                  value={matchPassword}
                   onFocus={() => setMatchFocus(true)}
                   onBlur={() => setMatchFocus(false)}
                 />

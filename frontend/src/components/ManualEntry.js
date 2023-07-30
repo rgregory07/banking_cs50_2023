@@ -8,6 +8,7 @@ import Header from "./Header";
 import Alert from "@mui/material/Alert";
 import IconButton from "@mui/material/IconButton";
 import Collapse from "@mui/material/Collapse";
+import useAuth from "../hooks/useAuth";
 
 import CloseIcon from "@mui/icons-material/Close";
 import {
@@ -79,9 +80,11 @@ const ManualEntry = () => {
   const [subcatData, setSubcatData] = useState(SubcategoryBlank);
   const [subcatValue, setSubcatValue] = useState();
   const [submit, setSubmit] = useState(false);
+  const { auth } = useAuth();
 
   useEffect(() => {
     console.log(carInsuranceJan);
+    console.log(auth);
   }, []);
 
   const SelectCat = ({ label, ...props }) => {

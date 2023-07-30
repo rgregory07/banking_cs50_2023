@@ -1,217 +1,325 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import Header from "../components/Header";
-import { Box, Typography } from "@mui/material";
-import OverviewDashboard from "../components/OverviewDashboard";
-import HomeExpenseBar from "../components/HouseExpenseBarChart";
-import PebblesVsChart from "../components/PebblesIncomeVsExpenseChart";
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import Header from '../components/Header'
+import { Box, Typography } from '@mui/material'
+import { DatePicker } from '@mui/x-date-pickers/DatePicker'
+import OverviewDashboard from '../components/OverviewDashboard'
+import HouseIncomeVsExpenses from './HouseIncomeVsExpensePage'
+import CSVDownloader from '../components/CSVDownload'
+
+const now = new Date()
+const day = `${now.getDate()}`.padStart(2, 0)
+const month = `${now.getMonth() + 1}`.padStart(2, 0)
+const year = now.getFullYear()
+const today = `${year}-${month}-${day}`
 
 const Dashboard = () => {
-  const [bankData, setBankData] = useState([]);
+  const [rawBankData, setRawBankData] = useState([])
+  const [bankData, setBankData] = useState([])
+  const [dateFrom, setDateFrom] = useState('')
+  const [dateTo, setDateTo] = useState('')
 
   // API Get
   useEffect(() => {
-    axios.get("/api/bankdata-api/").then((response) => {
-      setBankData(response.data);
-    });
-  }, []);
+    axios.get('/api/bankdata-api/').then((response) => {
+      setRawBankData(response.data)
+      setBankData(response.data)
+    })
+  }, [])
 
-  console.log(bankData);
+  // format dates for filtering
+  useEffect(() => {
+    const dateFromFormat = new Date(dateFrom)
+    const dayFrom = `${dateFromFormat.getDate()}`.padStart(2, 0)
+    const monthFrom = `${dateFromFormat.getMonth() + 1}`.padStart(2, 0)
+    const yearFrom = dateFromFormat.getFullYear()
+    const dateFromFiltered = `${yearFrom}-${monthFrom}-${dayFrom}`
+    console.log(dateFromFiltered)
 
-  const totalIncome = bankData.filter(function (item) {
-    return item.category === "Income";
-  });
+    const dateToFormat = new Date(dateTo)
+    const dayTo = `${dateToFormat.getDate()}`.padStart(2, 0)
+    const monthTo = `${dateToFormat.getMonth() + 1}`.padStart(2, 0)
+    const yearTo = dateToFormat.getFullYear()
+    const dateToFiltered = `${yearTo}-${monthTo}-${dayTo}`
 
-  const totalIncomeSum = totalIncome
+    console.log(dateToFiltered)
+    const filteredData = rawBankData.filter(function (data) {
+      return (
+        data.transaction_date >= dateFromFiltered &&
+        data.transaction_date <= dateToFiltered
+      )
+    })
+    setBankData(filteredData)
+    console.log(filteredData)
+  }, [dateFrom, dateTo])
+
+  function clearDates() {
+    setDateFrom('')
+    setDateTo('')
+    // console.log(rawBankData)
+    // resetData()
+  }
+
+  function resetData() {
+    setBankData(rawBankData)
+  }
+  // useEffect(() => {
+  //   setBankData(rawBankData)
+  // }, [clearDates])
+  console.log(bankData)
+
+  const totalIncome = bankData
+    .filter(function (item) {
+      return item.category === 'Income' && item.amount !== null
+    })
     .reduce((acc, value) => acc + parseFloat(value.amount), 0)
-    .toLocaleString();
+    .toLocaleString('en-US', { style: 'currency', currency: 'USD' })
 
   const totalSavings = bankData
     .filter(function (item) {
-      return item.category === "Savings";
+      return item.category === 'Savings'
+    })
+    .reduce((acc, value) => acc - parseFloat(value.amount), 0)
+    .toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+
+  const ppIncome = bankData
+    .filter(function (item) {
+      return (
+        item.category === 'Income' && item.sub_category === 'Pebbles & Pine'
+      )
     })
     .reduce((acc, value) => acc + parseFloat(value.amount), 0)
-    .toLocaleString();
-
-  const ppIncome = bankData.filter(function (item) {
-    return item.category === "Income" && item.sub_category === "Pebbles & Pine";
-  });
-
-  const ppIncomeSum = ppIncome
-    .reduce((acc, value) => acc + parseFloat(value.amount), 0)
-    .toLocaleString();
-  const ppIncomeSumNum = ppIncome
-    .reduce((acc, value) => acc + parseFloat(value.amount), 0)
-    .toFixed(2);
-
-  console.log(ppIncome);
 
   const incomeKKBrad = bankData.filter(function (transaction) {
-    return transaction.sub_category === "KK - Brad & Lindsay";
-  });
+    return transaction.sub_category === 'KK - Brad & Lindsay'
+  })
   const incomeKKJenn = bankData.filter(function (transaction) {
-    return transaction.sub_category === "KK - Jenn & Matt";
-  });
+    return transaction.sub_category === 'KK - Jenn & Matt'
+  })
   const incomeKKErinne = bankData.filter(function (transaction) {
-    return transaction.sub_category === "KK - Erinne";
-  });
+    return transaction.sub_category === 'KK - Erinne'
+  })
+
+  const kkBradTotal = incomeKKBrad
+    .reduce((acc, value) => acc + parseFloat(value.amount), 0)
+    .toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+
+  const kkJennTotal = incomeKKJenn
+    .reduce((acc, value) => acc + parseFloat(value.amount), 0)
+    .toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+
+  const kkErinneTotal = incomeKKErinne
+    .reduce((acc, value) => acc + parseFloat(value.amount), 0)
+    .toLocaleString('en-US', { style: 'currency', currency: 'USD' })
 
   const incomeKKTotal = [...incomeKKBrad, ...incomeKKJenn, ...incomeKKErinne]
     .reduce((acc, value) => acc + parseFloat(value.amount), 0)
-    .toLocaleString();
+    .toLocaleString('en-US', { style: 'currency', currency: 'USD' })
 
-  const bellIncome = bankData.filter(function (item) {
-    return (
-      item.category === "Income" && item.sub_category === "Ryan Bell Media"
-    );
-  });
-
-  const bellIncomeSum = bellIncome
-    .reduce((acc, value) => acc + parseFloat(value.amount), 0)
-    .toLocaleString();
+  // const bellIncome = bankData
+  //   .filter(function (item) {
+  //     return (
+  //       item.category === 'Income' && item.sub_category === 'Ryan Bell Media'
+  //     )
+  //   })
+  //   .reduce((acc, value) => acc + parseFloat(value.amount), 0)
+  //   .toLocaleString('en-US', { style: 'currency', currency: 'USD' })
 
   const pebblesExpense = bankData.filter(function (item) {
-    return item.category === "Pebbles & Pine" && item.amount !== null;
-  });
-  console.log(pebblesExpense);
-  const ppExpenseSum = pebblesExpense
-    .reduce((acc, value) => acc + parseFloat(value.amount), 0)
-    .toLocaleString();
+    return item.category === 'Pebbles & Pine' && item.amount !== null
+  })
+  // console.log(pebblesExpense)
+  const ppExpenseSum = pebblesExpense.reduce(
+    (acc, value) => acc + parseFloat(value.amount),
+    0
+  )
 
-  console.log(ppExpenseSum);
-  const ppExpenseSumNum =
-    pebblesExpense
-      .reduce((acc, value) => acc + parseFloat(value.amount), 0)
-      .toFixed(2) * -1;
-  console.log(ppExpenseSumNum);
-  const ppProfit = (ppIncomeSumNum - ppExpenseSumNum).toLocaleString();
+  const ppProfit = ppIncome + ppExpenseSum
 
   return (
-    <Box m="20px">
-      <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="DASHBOARD" subTitle="Overview of all accounts" />
+    <Box m='20px'>
+      <Box display='flex' justifyContent='space-between' alignItems='center'>
+        <Header title='DASHBOARD' subTitle='Overview of all accounts' />
+
+        <Box className='date-picker-container'>
+          <h5>Filter by Date Range</h5>
+          <div>
+            <DatePicker
+              label='Date From'
+              disableFuture
+              value={dateFrom || null}
+              onChange={(newDate) => setDateFrom(newDate)}
+            />
+            <DatePicker
+              label='Date To'
+              disableFuture
+              value={dateTo || null}
+              onChange={(newDate) => setDateTo(newDate.toString())}
+            />
+          </div>
+          <button
+            onClick={() => {
+              clearDates()
+              resetData()
+            }}
+          >
+            Clear Dates
+          </button>
+        </Box>
       </Box>
 
+      <CSVDownloader />
       <Box
-        display="grid"
-        gridTemplateColumns="repeat(12, 1fr)"
-        gridAutoRows="140px"
-        gap="20px"
+        display='grid'
+        gridTemplateColumns='repeat(12, 1fr)'
+        gridAutoRows='80px'
+        gap='20px'
       >
         {/* ROW 1 */}
-        <div className="dash-box">
+        <div className='dash-box'>
           <OverviewDashboard
-            title="Savings"
-            subTitle="Current Year Total"
+            title='Savings'
+            // subTitle='Current Year Total'
             total={totalSavings}
+            color='var(--clr-accent)'
           />
         </div>
 
-        <div className="dash-box">
+        <div className='dash-box'>
           <OverviewDashboard
-            title="Total Income"
-            subTitle="all acounts combined"
-            total={totalIncomeSum}
+            title='Total Household Income'
+            // subTitle='all acounts combined'
+            total={totalIncome}
+            color='var(--clr-accent)'
           />
         </div>
 
         {/* ROW 2 */}
-        <Box
-          backgroundColor="var(--clr-light-gray)"
-          gridColumn="span 12"
-          gridRow="span 3"
-        >
-          <div className="dash-pp-headers">
+        <div className='dash-section-bg'>
+          <div>
             <Typography
-              variant="h6"
-              fontWeight="600"
-              fontSize={"20px"}
-              sx={{ textAlign: "center", gridColumn: "Span 12" }}
-              p="5px"
+              variant='h5'
+              fontWeight='500'
+              textTransform='uppercase'
+              sx={{
+                textAlign: 'center',
+                gridColumn: 'Span 12',
+                padding: '10px',
+              }}
             >
-              Pebbles & Pine Income / Expenses
+              T-shirt Business Name
             </Typography>
           </div>
 
-          <div className="pp-header-container">
-            <div className="dash-pp-headers">
-              <Typography
-                fontSize={"14px"}
-                sx={{
-                  textTransform: "uppercase",
-                  borderBottom: "1px solid grey",
-                }}
-              >
-                Income
-              </Typography>
-              <Typography fontSize={"20px"} color={"var(--clr-accent)"}>
-                ${ppIncomeSum}
-              </Typography>
+          <div className='pp-header-container'>
+            <div>
+              <OverviewDashboard
+                title='Income'
+                total={ppIncome.toLocaleString('en-US', {
+                  style: 'currency',
+                  currency: 'USD',
+                })}
+                color='var(--clr-accent)'
+              />
             </div>
-            <div className="dash-pp-headers">
-              <Typography
-                fontSize={"14px"}
-                sx={{
-                  textTransform: "uppercase",
-                  borderBottom: "1px solid grey",
-                }}
-              >
-                Expenses
-              </Typography>
-              <Typography fontSize={"20px"} color={"var(--clr-red)"}>
-                ${ppExpenseSum}
-              </Typography>
+            <div>
+              <OverviewDashboard
+                title='Expenses'
+                total={ppExpenseSum.toLocaleString('en-US', {
+                  style: 'currency',
+                  currency: 'USD',
+                })}
+                color='var(--clr-red)'
+              />
             </div>
-            <div className="dash-pp-headers">
-              <Typography
-                fontSize={"14px"}
-                sx={{
-                  textTransform: "uppercase",
-                  borderBottom: "1px solid grey",
-                }}
-              >
-                Profit / Loss
-              </Typography>
-              <Typography
-                fontSize={"20px"}
-                color={ppProfit < 0 ? "var(--clr-red)" : "var(--clr-accent)"}
-              >
-                ${ppProfit}
-              </Typography>
+            <div>
+              <OverviewDashboard
+                title='Profit / Loss'
+                total={ppProfit.toLocaleString('en-US', {
+                  style: 'currency',
+                  currency: 'USD',
+                })}
+                color={ppProfit < 0 ? 'var(--clr-red)' : 'var(--clr-accent)'}
+              />
             </div>
           </div>
-
-          <Box height="75%" className="dash-charts">
-            <PebblesVsChart />
-          </Box>
-        </Box>
+        </div>
 
         {/* ROW 3 */}
-        <Box
-          className="dash-charts"
-          backgroundColor="var(--clr-light-gray)"
-          gridColumn="span 12"
-          gridRow="span 4"
+
+        <div className='dash-section-bg'>
+          <div className='dash-titles'>
+            <Typography
+              variant='h5'
+              fontWeight='500'
+              textTransform='uppercase'
+              sx={{
+                textAlign: 'center',
+                gridColumn: 'Span 12',
+                padding: '10px',
+              }}
+            >
+              Daycare Income
+            </Typography>
+          </div>
+
+          <div className='pp-header-container'>
+            <div>
+              <OverviewDashboard
+                title='Parent 1'
+                total={kkBradTotal}
+                color='var(--clr-accent)'
+              />
+            </div>
+            <div>
+              <OverviewDashboard
+                title='Parent 2'
+                total={kkJennTotal}
+                color='var(--clr-accent)'
+              />
+            </div>
+            <div>
+              <OverviewDashboard
+                title='Parent 3'
+                total={kkErinneTotal}
+                color='var(--clr-accent)'
+              />
+            </div>
+            <div>
+              <OverviewDashboard
+                title='Total'
+                total={incomeKKTotal}
+                color='var(--clr-accent)'
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* <Box
+          className='dash-charts'
+          backgroundColor='var(--clr-light-gray)'
+          gridColumn='span 12'
+          gridRow='span 6'
         >
           <Box>
             <Typography
-              variant="h6"
-              fontWeight="600"
-              fontSize={"20px"}
-              sx={{ textAlign: "center", gridColumn: "Span 12" }}
-              p="5px"
+              variant='h6'
+              fontWeight='600'
+              fontSize={'20px'}
+              sx={{ textAlign: 'center', gridColumn: 'Span 12' }}
+              padding='20px 10px'
             >
               Household Expenses
             </Typography>
           </Box>
 
-          <Box height="85%">
-            <HomeExpenseBar />
+          <Box height='65%'>
+            <HouseIncomeVsExpenses />
           </Box>
-        </Box>
+        </Box> */}
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard

@@ -40,10 +40,9 @@ INSTALLED_APPS = [
 
     'corsheaders',
     'rest_framework',
-    'widget_tweaks',
+    'djoser',
     'bankapp',
     'api',
-    'drf_multiple_model',
     'users',
 ]
 

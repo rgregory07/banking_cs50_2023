@@ -24,6 +24,10 @@ class UserView(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-class UserList(generics.ListAPIView):
+# class UserList(generics.ListAPIView):
+#     queryset = User.objects.all() 
+#     serializer_class = UserSerializer
+
+class UserList(generics.ListCreateAPIView):
     queryset = User.objects.all() 
     serializer_class = UserSerializer

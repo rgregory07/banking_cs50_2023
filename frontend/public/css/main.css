@@ -149,6 +149,11 @@
   --clr-kk: rgb(39, 204, 207);
   --clr-gov: gray;
   --clr-free: rgb(232, 202, 32);
+  --clr-bg-gradient: linear-gradient(
+    150deg,
+    rgb(245, 245, 245),
+    rgb(221, 221, 221)
+  );
 }
 
 .grid-buttons {
@@ -394,16 +399,18 @@
 
 .dash-box {
   grid-column: span 6;
-  background-color: var(--clr-light-gray);
+  background-image: var(--clr-bg-gradient);
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 6px;
 }
 
 .pp-header-container {
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .dash-pp-headers {
@@ -411,6 +418,31 @@
   flex-direction: column;
   justify-content: space-around;
   text-align: center;
+  align-items: center;
+  padding: 6px 20px;
+}
+
+.date-picker-container {
+  margin-bottom: 30px;
+}
+.date-picker-container h5 {
+  color: var(--clr-main-light);
+  text-align: end;
+}
+.date-picker-container > div {
+  margin-left: 10px;
+}
+
+.dash-section-bg {
+  background-image: var(--clr-bg-gradient);
+  grid-column: span 12;
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+  justify-content: space-around;
+  padding: 15px;
+  border-radius: 6px;
 }
 
 @media only screen and (max-width: 600px) {

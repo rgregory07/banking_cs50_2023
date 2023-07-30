@@ -1,15 +1,17 @@
 .dash-box {
   grid-column: span 6;
-  background-color: var(--clr-light-gray);
+  background-image: var(--clr-bg-gradient);
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 6px;
 }
 
 .pp-header-container {
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .dash-pp-headers {
@@ -17,7 +19,43 @@
   flex-direction: column;
   justify-content: space-around;
   text-align: center;
+  align-items: center;
+  // background-color: var(--clr-main-light);
+  // border-left: thin solid rgb(154, 154, 154);
+  // border-right: thin solid rgb(154, 154, 154);
+  // border-radius: 6px;
+  padding: 6px 20px;
+  // box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
+
+.date-picker-container {
+  margin-bottom: 30px;
+  & h5 {
+    color: var(--clr-main-light);
+    text-align: end;
+  }
+  & > div {
+    margin-left: 10px;
+  }
+}
+
+.dash-section-bg {
+  background-image: var(--clr-bg-gradient);
+  // background-color: var(--clr-main);
+  grid-column: span 12;
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+  justify-content: space-around;
+  padding: 15px;
+  border-radius: 6px;
+  // border: thin solid rgb(195, 195, 195);
+}
+
+// .dash-titles {
+//   border-bottom: thin solid rgb(195, 195, 195);
+// }
 
 @media only screen and (max-width: 600px) {
   .dash-box {

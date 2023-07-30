@@ -1,137 +1,139 @@
-import * as React from "react";
-import { styled, useTheme } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import MuiDrawer from "@mui/material/Drawer";
-import MuiAppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
-import CssBaseline from "@mui/material/CssBaseline";
+import * as React from 'react'
+import { styled, useTheme } from '@mui/material/styles'
+import Box from '@mui/material/Box'
+import MuiDrawer from '@mui/material/Drawer'
+import MuiAppBar from '@mui/material/AppBar'
+import Toolbar from '@mui/material/Toolbar'
+import List from '@mui/material/List'
+import CssBaseline from '@mui/material/CssBaseline'
 // import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
+import Divider from '@mui/material/Divider'
+import IconButton from '@mui/material/IconButton'
+import MenuIcon from '@mui/icons-material/Menu'
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
+import ChevronRightIcon from '@mui/icons-material/ChevronRight'
+import ListItem from '@mui/material/ListItem'
+import ListItemButton from '@mui/material/ListItemButton'
+import ListItemIcon from '@mui/material/ListItemIcon'
+import ListItemText from '@mui/material/ListItemText'
 // import InboxIcon from "@mui/icons-material/MoveToInbox";
 // import MailIcon from "@mui/icons-material/Mail";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import DashboardIcon from '@mui/icons-material/Dashboard'
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance'
 // import CreditCardIcon from "@mui/icons-material/CreditCard";
-import PostAddIcon from "@mui/icons-material/PostAdd";
-import EqualizerIcon from "@mui/icons-material/Equalizer";
-import DataUsageIcon from "@mui/icons-material/DataUsage";
-import ShowChartIcon from "@mui/icons-material/ShowChart";
+import PostAddIcon from '@mui/icons-material/PostAdd'
+import EqualizerIcon from '@mui/icons-material/Equalizer'
+import DataUsageIcon from '@mui/icons-material/DataUsage'
+import ShowChartIcon from '@mui/icons-material/ShowChart'
 // import StoreIcon from "@mui/icons-material/Store";
 // import PaidIcon from "@mui/icons-material/Paid";
-import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import CloudUploadIcon from '@mui/icons-material/CloudUpload'
 // import TopBar from "./TopBar";
-import { Link } from "react-router-dom";
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import { Link } from 'react-router-dom'
+import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined'
+import SsidChartIcon from '@mui/icons-material/SsidChart'
+import QueryStatsIcon from '@mui/icons-material/QueryStats'
 // import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
 // import theme from '../theme'
 
-const drawerWidth = 240;
+const drawerWidth = 240
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
-  transition: theme.transitions.create("width", {
+  transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.enteringScreen,
   }),
-  overflowX: "hidden",
-});
+  overflowX: 'hidden',
+})
 
 const closedMixin = (theme) => ({
-  transition: theme.transitions.create("width", {
+  transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
-  overflowX: "hidden",
+  overflowX: 'hidden',
   width: `calc(${theme.spacing(7)} + 1px)`,
-  [theme.breakpoints.up("sm")]: {
+  [theme.breakpoints.up('sm')]: {
     width: `calc(${theme.spacing(8)} + 1px)`,
   },
-});
+})
 
-const DrawerHeader = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "flex-end",
+const DrawerHeader = styled('div')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-end',
   padding: theme.spacing(0, 1),
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
-}));
+}))
 
 const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
+  shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
   zIndex: theme.zIndex.drawer + 1,
-  transition: theme.transitions.create(["width", "margin"], {
+  transition: theme.transitions.create(['width', 'margin'], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
   ...(open && {
     marginLeft: drawerWidth,
     width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(["width", "margin"], {
+    transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
   }),
-}));
+}))
 
 const Drawer = styled(MuiDrawer, {
-  shouldForwardProp: (prop) => prop !== "open",
+  shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
   width: drawerWidth,
   flexShrink: 0,
-  whiteSpace: "nowrap",
-  boxSizing: "border-box",
+  whiteSpace: 'nowrap',
+  boxSizing: 'border-box',
   ...(open && {
     ...openedMixin(theme),
-    "& .MuiDrawer-paper": openedMixin(theme),
+    '& .MuiDrawer-paper': openedMixin(theme),
   }),
   ...(!open && {
     ...closedMixin(theme),
-    "& .MuiDrawer-paper": closedMixin(theme),
+    '& .MuiDrawer-paper': closedMixin(theme),
   }),
-}));
+}))
 
 export default function MiniDrawer() {
-  const theme = useTheme();
+  const theme = useTheme()
   // const customColor = theme.palette
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false)
   // console.log(customColor.secondary)
 
   const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+    setOpen(true)
+  }
 
   const handleDrawerClose = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
   return (
-    <Box sx={{ display: "flex", backgroundColor: "var(--clr-main)" }}>
+    <Box sx={{ display: 'flex', backgroundColor: 'var(--clr-main)' }}>
       <CssBaseline />
       <AppBar
-        position="fixed"
+        position='fixed'
         open={open}
-        sx={{ backgroundColor: "var(--clr-main)" }}
+        sx={{ backgroundColor: 'var(--clr-main)' }}
       >
         <Toolbar>
           <IconButton
-            color="inherit"
-            aria-label="open drawer"
+            color='inherit'
+            aria-label='open drawer'
             onClick={handleDrawerOpen}
-            edge="start"
+            edge='start'
             sx={{
               marginRight: 5,
-              ...(open && { display: "none" }),
+              ...(open && { display: 'none' }),
             }}
           >
             <MenuIcon />
@@ -140,10 +142,10 @@ export default function MiniDrawer() {
           {/* <TopBar /> */}
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open}>
+      <Drawer variant='permanent' open={open}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? (
+            {theme.direction === 'rtl' ? (
               <ChevronRightIcon />
             ) : (
               <ChevronLeftIcon />
@@ -152,28 +154,28 @@ export default function MiniDrawer() {
         </DrawerHeader>
         <Divider />
         <List>
-          <Link to={"/"} className="sidebar-link">
-            <ListItem key="Dashboard" disablePadding sx={{ display: "block" }}>
+          <Link to={'/'} className='sidebar-link'>
+            <ListItem key='Dashboard' disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
+                  justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
               >
                 <ListItemIcon
                   sx={{
-                    color: "var(--clr-main-light)",
+                    color: 'var(--clr-main-light)',
                     minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
                   }}
                 >
                   <DashboardIcon />
                 </ListItemIcon>
                 <ListItemText
-                  primary="Dashboard"
-                  sx={{ opacity: open ? 1 : 0, color: "var(--clr-main)" }}
+                  primary='Dashboard'
+                  sx={{ opacity: open ? 1 : 0, color: 'var(--clr-main)' }}
                 />
               </ListItemButton>
             </ListItem>
@@ -182,88 +184,88 @@ export default function MiniDrawer() {
         <Divider />
 
         <List>
-          <Link to={"/bankdata"} className="sidebar-link">
-            <ListItem key="Bank Data" disablePadding sx={{ display: "block" }}>
+          <Link to={'/bankdata'} className='sidebar-link'>
+            <ListItem key='Bank Data' disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
+                  justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
               >
                 <ListItemIcon
                   sx={{
-                    color: "var(--clr-main-light)",
+                    color: 'var(--clr-main-light)',
                     minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
                   }}
                 >
                   <AccountBalanceIcon />
                 </ListItemIcon>
                 <ListItemText
-                  primary="Bank Data"
-                  sx={{ opacity: open ? 1 : 0, color: "var(--clr-main)" }}
+                  primary='Bank Data'
+                  sx={{ opacity: open ? 1 : 0, color: 'var(--clr-main)' }}
                 />
               </ListItemButton>
             </ListItem>
           </Link>
-          <Link to={"/manual-entry"} className="sidebar-link">
+          <Link to={'/manual-entry'} className='sidebar-link'>
             <ListItem
-              key="Manual Entry"
+              key='Manual Entry'
               disablePadding
-              sx={{ display: "block" }}
+              sx={{ display: 'block' }}
             >
               <ListItemButton
                 sx={{
                   minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
+                  justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
               >
                 <ListItemIcon
                   sx={{
-                    color: "var(--clr-main-light)",
+                    color: 'var(--clr-main-light)',
                     minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
                   }}
                 >
                   <PostAddIcon />
                 </ListItemIcon>
                 <ListItemText
-                  primary="Manual Entry"
-                  sx={{ opacity: open ? 1 : 0, color: "var(--clr-main)" }}
+                  primary='Manual Entry'
+                  sx={{ opacity: open ? 1 : 0, color: 'var(--clr-main)' }}
                 />
               </ListItemButton>
             </ListItem>
           </Link>
-          <Link to={"/upload"} className="sidebar-link">
+          <Link to={'/upload'} className='sidebar-link'>
             <ListItem
-              key="Manual Entry"
+              key='Manual Entry'
               disablePadding
-              sx={{ display: "block" }}
+              sx={{ display: 'block' }}
             >
               <ListItemButton
                 sx={{
                   minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
+                  justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
               >
                 <ListItemIcon
                   sx={{
-                    color: "var(--clr-main-light)",
+                    color: 'var(--clr-main-light)',
                     minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
                   }}
                 >
                   <CloudUploadIcon />
                 </ListItemIcon>
                 <ListItemText
-                  primary="Upload"
-                  sx={{ opacity: open ? 1 : 0, color: "var(--clr-main)" }}
+                  primary='Upload'
+                  sx={{ opacity: open ? 1 : 0, color: 'var(--clr-main)' }}
                 />
               </ListItemButton>
             </ListItem>
@@ -272,95 +274,125 @@ export default function MiniDrawer() {
 
         <Divider />
         <List>
-          <Link to={"/income"} className="sidebar-link">
-            <ListItem key="Income" disablePadding sx={{ display: "block" }}>
+          <Link to={'/income'} className='sidebar-link'>
+            <ListItem key='Income' disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
+                  justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
               >
                 <ListItemIcon
                   sx={{
-                    color: "var(--clr-main-light)",
+                    color: 'var(--clr-main-light)',
                     minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
                   }}
                 >
                   <DataUsageIcon />
                 </ListItemIcon>
                 <ListItemText
-                  primary="Income"
-                  sx={{ opacity: open ? 1 : 0, color: "var(--clr-main)" }}
+                  primary='Income'
+                  sx={{ opacity: open ? 1 : 0, color: 'var(--clr-main)' }}
                 />
               </ListItemButton>
             </ListItem>
           </Link>
-          <Link to={"/pp-expenses"} className="sidebar-link">
+          <Link to={'/pp-expenses'} className='sidebar-link'>
             <ListItem
-              key="P&P Expenses"
+              key='P&P Expenses'
               disablePadding
-              sx={{ display: "block" }}
+              sx={{ display: 'block' }}
             >
               <ListItemButton
                 sx={{
                   minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
+                  justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
               >
                 <ListItemIcon
                   sx={{
-                    color: "var(--clr-main-light)",
+                    color: 'var(--clr-main-light)',
                     minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
                   }}
                 >
-                  <ShowChartIcon />
+                  <SsidChartIcon />
                 </ListItemIcon>
                 <ListItemText
-                  primary="P&P Expenses"
-                  sx={{ opacity: open ? 1 : 0, color: "var(--clr-main)" }}
+                  primary='P&P Expenses'
+                  sx={{ opacity: open ? 1 : 0, color: 'var(--clr-main)' }}
                 />
               </ListItemButton>
             </ListItem>
           </Link>
-          <Link to={"/home-expenses"} className="sidebar-link">
+          <Link to={'/home-expenses'} className='sidebar-link'>
             <ListItem
-              key="House Expenses"
+              key='House Expenses'
               disablePadding
-              sx={{ display: "block" }}
+              sx={{ display: 'block' }}
             >
               <ListItemButton
                 sx={{
                   minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
+                  justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
               >
                 <ListItemIcon
                   sx={{
-                    color: "var(--clr-main-light)",
+                    color: 'var(--clr-main-light)',
                     minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
                   }}
                 >
                   <EqualizerIcon />
                 </ListItemIcon>
                 <ListItemText
-                  primary="House Expenses"
-                  sx={{ opacity: open ? 1 : 0, color: "var(--clr-main)" }}
+                  primary='House Expenses'
+                  sx={{ opacity: open ? 1 : 0, color: 'var(--clr-main)' }}
+                />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+          <Link to={'/home-income-vs-expenses'} className='sidebar-link'>
+            <ListItem
+              key='House Income vs. Expenses'
+              disablePadding
+              sx={{ display: 'block' }}
+            >
+              <ListItemButton
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    color: 'var(--clr-main-light)',
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <QueryStatsIcon />
+                </ListItemIcon>
+                <ListItemText
+                  primary='Income vs. Expenses'
+                  sx={{ opacity: open ? 1 : 0, color: 'var(--clr-main)' }}
                 />
               </ListItemButton>
             </ListItem>
           </Link>
         </List>
 
-        <Divider />
+        {/* <Divider />
         <List>
           <Link to={"/profile"} className="sidebar-link">
             <ListItem key="Profile" disablePadding sx={{ display: "block" }}>
@@ -388,8 +420,8 @@ export default function MiniDrawer() {
               </ListItemButton>
             </ListItem>
           </Link>
-        </List>
+        </List> */}
       </Drawer>
     </Box>
-  );
+  )
 }
