@@ -4,8 +4,6 @@ import Header from '../components/Header'
 import { Box, Typography } from '@mui/material'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import OverviewDashboard from '../components/OverviewDashboard'
-import HouseIncomeVsExpenses from './HouseIncomeVsExpensePage'
-import CSVDownloader from '../components/CSVDownload'
 
 const now = new Date()
 const day = `${now.getDate()}`.padStart(2, 0)
@@ -54,14 +52,17 @@ const Dashboard = () => {
   }, [dateFrom, dateTo])
 
   function clearDates() {
+    // console.log(rawBankData)
     setDateFrom('')
     setDateTo('')
-    // console.log(rawBankData)
-    // resetData()
+    setTimeout(() => {
+      resetData()
+    }, 500)
   }
 
   function resetData() {
     setBankData(rawBankData)
+    console.log('hit reset')
   }
   // useEffect(() => {
   //   setBankData(rawBankData)
@@ -116,15 +117,6 @@ const Dashboard = () => {
     .reduce((acc, value) => acc + parseFloat(value.amount), 0)
     .toLocaleString('en-US', { style: 'currency', currency: 'USD' })
 
-  // const bellIncome = bankData
-  //   .filter(function (item) {
-  //     return (
-  //       item.category === 'Income' && item.sub_category === 'Ryan Bell Media'
-  //     )
-  //   })
-  //   .reduce((acc, value) => acc + parseFloat(value.amount), 0)
-  //   .toLocaleString('en-US', { style: 'currency', currency: 'USD' })
-
   const pebblesExpense = bankData.filter(function (item) {
     return item.category === 'Pebbles & Pine' && item.amount !== null
   })
@@ -143,7 +135,7 @@ const Dashboard = () => {
 
         <Box className='date-picker-container'>
           <h5>Filter by Date Range</h5>
-          <div>
+          <div className='pickers'>
             <DatePicker
               label='Date From'
               disableFuture
@@ -158,6 +150,7 @@ const Dashboard = () => {
             />
           </div>
           <button
+            className='btn-main'
             onClick={() => {
               clearDates()
               resetData()
@@ -168,7 +161,6 @@ const Dashboard = () => {
         </Box>
       </Box>
 
-      <CSVDownloader />
       <Box
         display='grid'
         gridTemplateColumns='repeat(12, 1fr)'
@@ -179,7 +171,6 @@ const Dashboard = () => {
         <div className='dash-box'>
           <OverviewDashboard
             title='Savings'
-            // subTitle='Current Year Total'
             total={totalSavings}
             color='var(--clr-accent)'
           />
@@ -187,8 +178,7 @@ const Dashboard = () => {
 
         <div className='dash-box'>
           <OverviewDashboard
-            title='Total Household Income'
-            // subTitle='all acounts combined'
+            title='Total Income'
             total={totalIncome}
             color='var(--clr-accent)'
           />
@@ -294,29 +284,6 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-
-        {/* <Box
-          className='dash-charts'
-          backgroundColor='var(--clr-light-gray)'
-          gridColumn='span 12'
-          gridRow='span 6'
-        >
-          <Box>
-            <Typography
-              variant='h6'
-              fontWeight='600'
-              fontSize={'20px'}
-              sx={{ textAlign: 'center', gridColumn: 'Span 12' }}
-              padding='20px 10px'
-            >
-              Household Expenses
-            </Typography>
-          </Box>
-
-          <Box height='65%'>
-            <HouseIncomeVsExpenses />
-          </Box>
-        </Box> */}
       </Box>
     </Box>
   )

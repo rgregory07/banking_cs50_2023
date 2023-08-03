@@ -2,7 +2,9 @@
 
 #### Video Demo: <URL HERE>
 
-#### Description: This web app was created for tracking and categorizing personal finances.
+#### Description:
+
+This web app was created for tracking and categorizing personal finances.
 
 ## Overview
 
@@ -41,13 +43,23 @@ The Dashboard gives a quick overview of Income & Expense totals. The default use
 
 ### Cateegorize Bank Data
 
-Bank data is displayed in a table using AG-Grid
+Bank data is displayed in a table using AG-Grid. It includes the ability to sort and filter each column. The only columns that allow editing of information are Category, Subcategory, and Notes.
+
+Any transaction that does not have a Category & Subcategory will not be included in any of the reporting data discplayed on the dashboard or charts.
+
+As a safety measure, there is no option to delete rows from the grid, as it would also permanetly delete them from the database. Instead, under the Misc category, there is an Ignore Subcategory. There is also the option to just leave the Category & Subcategory blank.
 
 ### Manual Transaction Entry
 
+If you need to add a transaction that is not on your bank statements (eg. cash transaction), you can enter the details from this page. It also allowes you to select the proper Categorizations so you don't have to add it in the table after.
+
 ### CSV Upload
 
+Drag and Drop a csv file from your bank account into the app, and you can view the transactions, delete unwanted rows, then save to the database.
+
 ### Charts
+
+A few charts to help visualize income vs expenses, or a breakdown of each expense or income per month.
 
 ## Future Features
 

@@ -10,8 +10,9 @@
 }
 
 .upload-container {
-  width: 90%;
-  margin: auto;
+  // width: 90%;
+  // margin: auto;
+  position: relative;
 }
 
 .table-upload {
@@ -24,5 +25,24 @@
   & input {
     display: flex;
     margin: auto;
+  }
+}
+
+.success-upload {
+  background-color: rgba(171, 207, 171, 0.84);
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin-bottom: 30px;
+
+  & h3 {
+    font-size: 2rem;
+  }
+
+  & button {
+    padding: 10px;
   }
 }
