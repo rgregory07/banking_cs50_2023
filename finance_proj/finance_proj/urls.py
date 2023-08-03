@@ -26,7 +26,7 @@ from users.views import UserView
 router = routers.DefaultRouter()
 router.register(r'bankdata-api', views.bankDataView, 'bankapp')
 router.register(r'users-api', UserView)
-# router.register(r'ppdata-api', views.ppDataView, 'bankapp')
+
 
 
 

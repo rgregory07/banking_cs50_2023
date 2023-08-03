@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { Box, Button, TextField } from "@mui/material";
-import { Formik, Field, useField, ErrorMessage } from "formik";
-import * as yup from "yup";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import axios from "axios";
-import Header from "./Header";
-import Alert from "@mui/material/Alert";
-import IconButton from "@mui/material/IconButton";
-import Collapse from "@mui/material/Collapse";
-import useAuth from "../hooks/useAuth";
+import React, { useEffect, useState } from 'react'
+import { Box, Button, TextField } from '@mui/material'
+import { Formik, Field, useField, ErrorMessage } from 'formik'
+import * as yup from 'yup'
+import useMediaQuery from '@mui/material/useMediaQuery'
+import axios from 'axios'
+import Header from './Header'
+import Alert from '@mui/material/Alert'
+import IconButton from '@mui/material/IconButton'
+import Collapse from '@mui/material/Collapse'
 
-import CloseIcon from "@mui/icons-material/Close";
+import CloseIcon from '@mui/icons-material/Close'
 import {
   CategoryList,
   SubcategoryHouse,
@@ -22,36 +21,34 @@ import {
   SubcategorySavings,
   SubcategoryRyanFreelance,
   SubcategoryBlank,
-} from "../data/CategoryData";
-
-import { carInsuranceJan } from "../data/Data";
+} from '../data/CategoryData'
 
 // Manual Entry Code
 
 const initialValues = {
-  transactionDate: " ",
-  amount: "",
+  transactionDate: ' ',
+  amount: '',
   // account: '',
-  description: "",
-  notes: "",
+  description: '',
+  notes: '',
   // paymentMethod: '',
-  category: "",
-  subcategory: "",
-};
+  category: '',
+  subcategory: '',
+}
 
 const transactionSchema = yup.object().shape({
-  transactionDate: yup.string().required("required"),
-  amount: yup.string().required("required"),
+  transactionDate: yup.string().required('required'),
+  amount: yup.string().required('required'),
   // account: yup.string().required("required"),
-  description: yup.string().required("required"),
-  notes: yup.string().required("required"),
+  description: yup.string().required('required'),
+  notes: yup.string().required('required'),
   // paymentMethod: yup.string().required("required"),
   category: yup.string(),
   subcategory: yup.string(),
-});
+})
 
 const handleFormSubmit = (data, { resetForm, setFieldTouched }) => {
-  let url = `http://localhost:8000/api/bankdata-api/`;
+  let url = `http://localhost:8000/api/bankdata-api/`
   axios
     .post(
       url,
@@ -64,60 +61,54 @@ const handleFormSubmit = (data, { resetForm, setFieldTouched }) => {
         sub_category: data.subcategory,
         transaction_date: data.transactionDate,
       },
-      { headers: { "Content-Type": "application/json" } }
+      { headers: { 'Content-Type': 'application/json' } }
     )
     .then((response) => {
-      console.log(response.data);
+      console.log(response.data)
     })
-    .catch((err) => console.log(err));
-};
+    .catch((err) => console.log(err))
+}
 
 const ManualEntry = () => {
-  const isNonMobile = useMediaQuery("min-width: 600px");
-  const [open, setOpen] = useState(false);
-  const [catValue, setCatValue] = useState();
-  const catData = CategoryList;
-  const [subcatData, setSubcatData] = useState(SubcategoryBlank);
-  const [subcatValue, setSubcatValue] = useState();
-  const [submit, setSubmit] = useState(false);
-  const { auth } = useAuth();
-
-  useEffect(() => {
-    console.log(carInsuranceJan);
-    console.log(auth);
-  }, []);
+  const isNonMobile = useMediaQuery('min-width: 600px')
+  const [open, setOpen] = useState(false)
+  const [catValue, setCatValue] = useState()
+  const catData = CategoryList
+  const [subcatData, setSubcatData] = useState(SubcategoryBlank)
+  const [subcatValue, setSubcatValue] = useState()
+  const [submit, setSubmit] = useState(false)
 
   const SelectCat = ({ label, ...props }) => {
-    const [field, meta] = useField(props);
+    const [field, meta] = useField(props)
 
     // const subCat = function(value) {
-    let selectedCategory = catValue;
+    let selectedCategory = catValue
     useEffect(() => {
-      if (selectedCategory === "Household") {
-        setSubcatData(SubcategoryHouse);
+      if (selectedCategory === 'Household') {
+        setSubcatData(SubcategoryHouse)
       }
-      if (selectedCategory === "Pebbles & Pine") {
-        setSubcatData(SubcategoryPebbles);
+      if (selectedCategory === 'Pebbles & Pine') {
+        setSubcatData(SubcategoryPebbles)
       }
-      if (selectedCategory === "Kidlet Kare") {
-        setSubcatData(SubcategoryKidlet);
+      if (selectedCategory === 'Kidlet Kare') {
+        setSubcatData(SubcategoryKidlet)
       }
-      if (selectedCategory === "Medical") {
-        setSubcatData(SubcategoryMedical);
+      if (selectedCategory === 'Medical') {
+        setSubcatData(SubcategoryMedical)
       }
-      if (selectedCategory === "Misc") {
-        setSubcatData(SubcategoryMisc);
+      if (selectedCategory === 'Misc') {
+        setSubcatData(SubcategoryMisc)
       }
-      if (selectedCategory === "Income") {
-        setSubcatData(SubcategoryIncome);
+      if (selectedCategory === 'Income') {
+        setSubcatData(SubcategoryIncome)
       }
-      if (selectedCategory === "Savings") {
-        setSubcatData(SubcategorySavings);
+      if (selectedCategory === 'Savings') {
+        setSubcatData(SubcategorySavings)
       }
-      if (selectedCategory === "Ryan Freelance") {
-        setSubcatData(SubcategoryRyanFreelance);
+      if (selectedCategory === 'Ryan Freelance') {
+        setSubcatData(SubcategoryRyanFreelance)
       }
-    }, []);
+    }, [])
 
     return (
       <div>
@@ -132,14 +123,14 @@ const ManualEntry = () => {
           ))}
         </select>
         {meta.touched && meta.error ? (
-          <div className="error">{meta.error}</div>
+          <div className='error'>{meta.error}</div>
         ) : null}
       </div>
-    );
-  };
+    )
+  }
 
   const SelectSubCat = ({ label, ...props }) => {
-    const [field, meta] = useField(props);
+    const [field, meta] = useField(props)
 
     return (
       <div>
@@ -154,21 +145,21 @@ const ManualEntry = () => {
           ))}
         </select>
         {meta.touched && meta.error ? (
-          <div className="error">{meta.error}</div>
+          <div className='error'>{meta.error}</div>
         ) : null}
       </div>
-    );
-  };
+    )
+  }
 
   return (
     <>
-      <Box m="20px">
+      <Box m='20px'>
         <Header
-          title="Add New Transaction"
+          title='Add New Transaction'
           subTitle="Manually enter a transaction that doesn't appear on the other statements"
         />
 
-        <h4 className="mb-2" style={{ color: "var(--clr-main-light)" }}>
+        <h4 className='mb-2' style={{ color: 'var(--clr-main-light)' }}>
           * When entering an expense, use the minus symbol (-) in Amount
         </h4>
         <Formik
@@ -191,38 +182,38 @@ const ManualEntry = () => {
           }) => (
             <form onSubmit={handleSubmit}>
               <Box
-                display="grid"
-                gap="30px"
-                gridTemplateColumns="repeat(4, minmax(1, 1fr))"
+                display='grid'
+                gap='30px'
+                gridTemplateColumns='repeat(4, minmax(1, 1fr))'
                 sx={{
-                  "& > div": { gridColumn: isNonMobile ? "span 2" : "span 4" },
+                  '& > div': { gridColumn: isNonMobile ? 'span 2' : 'span 4' },
                 }}
               >
                 <TextField
                   fullWidth
-                  variant="outlined"
-                  type="date"
-                  label="Transaction Date"
+                  variant='outlined'
+                  type='date'
+                  label='Transaction Date'
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.transactionDate}
-                  name="transactionDate"
+                  name='transactionDate'
                   error={!!touched.transactionDate && !!errors.transactionDate}
                   helperText={touched.transactionDate && errors.transactionDate}
-                  sx={{ gridColumn: "span 2" }}
+                  sx={{ gridColumn: 'span 2' }}
                 />
                 <TextField
                   fullWidth
-                  variant="outlined"
-                  type="number"
-                  label="Amount"
+                  variant='outlined'
+                  type='number'
+                  label='Amount'
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.amount}
-                  name="amount"
+                  name='amount'
                   error={!!touched.amount && !!errors.amount}
                   helperText={touched.amount && errors.amount}
-                  sx={{ gridColumn: "span 2" }}
+                  sx={{ gridColumn: 'span 2' }}
                 />
                 {/* <TextField
                   fullWidth
@@ -239,45 +230,45 @@ const ManualEntry = () => {
                   /> */}
                 <TextField
                   fullWidth
-                  variant="outlined"
-                  type="text"
-                  label="Description"
+                  variant='outlined'
+                  type='text'
+                  label='Description'
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.description}
-                  name="description"
+                  name='description'
                   error={!!touched.description && !!errors.description}
                   helperText={touched.description && errors.description}
-                  sx={{ gridColumn: "span 2" }}
+                  sx={{ gridColumn: 'span 2' }}
                 />
                 <TextField
                   fullWidth
-                  variant="outlined"
-                  type="text"
-                  label="Notes"
+                  variant='outlined'
+                  type='text'
+                  label='Notes'
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.notes}
-                  name="notes"
+                  name='notes'
                   error={!!touched.notes && !!errors.notes}
                   helperText={touched.notes && errors.notes}
-                  sx={{ gridColumn: "span 2" }}
+                  sx={{ gridColumn: 'span 2' }}
                 />
-                <Box sx={{ gridColumn: "span 2" }}>
+                <Box sx={{ gridColumn: 'span 2' }}>
                   <SelectCat
-                    className="dropdown"
-                    label="category"
-                    name="category"
+                    className='dropdown'
+                    label='category'
+                    name='category'
                     onBlur={handleBlur}
                     onChange={handleChange}
                     value={catValue}
                   />
                 </Box>
-                <Box sx={{ gridColumn: "span 2" }}>
+                <Box sx={{ gridColumn: 'span 2' }}>
                   <SelectSubCat
-                    className="dropdown"
-                    label="subcategory"
-                    name="subcategory"
+                    className='dropdown'
+                    label='subcategory'
+                    name='subcategory'
                     value={subcatValue}
                     onBlur={handleBlur}
                     onChange={handleChange}
@@ -285,24 +276,24 @@ const ManualEntry = () => {
                 </Box>
               </Box>
 
-              <Box justifyContent="start" mt="20px" className="grid-buttons">
+              <Box justifyContent='start' mt='20px' className='grid-buttons'>
                 <Collapse in={isSubmitting}>
                   <Alert
-                    severity="success"
+                    severity='success'
                     action={
                       <IconButton
-                        aria-label="close"
-                        color="inherit"
-                        size="small"
+                        aria-label='close'
+                        color='inherit'
+                        size='small'
                         onClick={() => {
-                          setOpen(false);
-                          resetForm();
-                          setCatValue();
-                          setSubcatValue();
+                          setOpen(false)
+                          resetForm()
+                          setCatValue()
+                          setSubcatValue()
                         }}
                       >
                         <h6>Close </h6>
-                        <CloseIcon fontSize="inherit" />
+                        <CloseIcon fontSize='inherit' />
                       </IconButton>
                     }
                     sx={{ mb: 2 }}
@@ -311,12 +302,12 @@ const ManualEntry = () => {
                   </Alert>
                 </Collapse>
                 <Button
-                  type="submit"
+                  type='submit'
                   disabled={isSubmitting}
-                  variant="outlined"
+                  variant='outlined'
                   onClick={() => {
-                    values.category = catValue;
-                    values.subcategory = subcatValue;
+                    values.category = catValue
+                    values.subcategory = subcatValue
                   }}
                 >
                   Create New Transaction
@@ -327,7 +318,7 @@ const ManualEntry = () => {
         </Formik>
       </Box>
     </>
-  );
-};
+  )
+}
 
-export default ManualEntry;
+export default ManualEntry

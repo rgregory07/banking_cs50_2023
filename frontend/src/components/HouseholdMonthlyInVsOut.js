@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { AgChartsReact } from 'ag-charts-react'
 import axios from 'axios'
 import { ResponsiveLine } from '@nivo/line'
 

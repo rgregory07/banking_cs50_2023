@@ -1,9 +1,6 @@
 from django.db import models
 
 
-
-
-
 class bankData(models.Model):
     account = models.CharField(max_length=50, blank=True, null=True)
     transaction_date = models.DateField(blank=True, null=True)

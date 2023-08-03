@@ -6,7 +6,6 @@ import MuiAppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import List from '@mui/material/List'
 import CssBaseline from '@mui/material/CssBaseline'
-// import Typography from "@mui/material/Typography";
 import Divider from '@mui/material/Divider'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
@@ -16,25 +15,16 @@ import ListItem from '@mui/material/ListItem'
 import ListItemButton from '@mui/material/ListItemButton'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
-// import InboxIcon from "@mui/icons-material/MoveToInbox";
-// import MailIcon from "@mui/icons-material/Mail";
 import DashboardIcon from '@mui/icons-material/Dashboard'
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance'
-// import CreditCardIcon from "@mui/icons-material/CreditCard";
 import PostAddIcon from '@mui/icons-material/PostAdd'
 import EqualizerIcon from '@mui/icons-material/Equalizer'
 import DataUsageIcon from '@mui/icons-material/DataUsage'
 import ShowChartIcon from '@mui/icons-material/ShowChart'
-// import StoreIcon from "@mui/icons-material/Store";
-// import PaidIcon from "@mui/icons-material/Paid";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload'
-// import TopBar from "./TopBar";
 import { Link } from 'react-router-dom'
-import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined'
 import SsidChartIcon from '@mui/icons-material/SsidChart'
 import QueryStatsIcon from '@mui/icons-material/QueryStats'
-// import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
-// import theme from '../theme'
 
 const drawerWidth = 240
 
@@ -105,9 +95,8 @@ const Drawer = styled(MuiDrawer, {
 
 export default function MiniDrawer() {
   const theme = useTheme()
-  // const customColor = theme.palette
+
   const [open, setOpen] = React.useState(false)
-  // console.log(customColor.secondary)
 
   const handleDrawerOpen = () => {
     setOpen(true)
@@ -391,36 +380,6 @@ export default function MiniDrawer() {
             </ListItem>
           </Link>
         </List>
-
-        {/* <Divider />
-        <List>
-          <Link to={"/profile"} className="sidebar-link">
-            <ListItem key="Profile" disablePadding sx={{ display: "block" }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    color: "var(--clr-main-light)",
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
-                  }}
-                >
-                  <PersonOutlinedIcon />
-                </ListItemIcon>
-                <ListItemText
-                  primary="Profile"
-                  sx={{ opacity: open ? 1 : 0, color: "var(--clr-main)" }}
-                />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-        </List> */}
       </Drawer>
     </Box>
   )
