@@ -6,9 +6,6 @@ from .models import *
 from .serializers import *
 
 
-
-
-
 class UserView(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
@@ -18,3 +15,5 @@ class UserView(viewsets.ModelViewSet):
 class UserList(generics.ListCreateAPIView):
     queryset = User.objects.all() 
     serializer_class = UserSerializer
+
+

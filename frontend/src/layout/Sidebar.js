@@ -128,7 +128,9 @@ export default function MiniDrawer() {
             <MenuIcon />
           </IconButton>
           <h3>Personal Finance Tracker</h3>
-          {/* <TopBar /> */}
+          {/* <Link to={'/login'} className='navbar-link'>
+            Logout
+          </Link> */}
         </Toolbar>
       </AppBar>
       <Drawer variant='permanent' open={open}>
