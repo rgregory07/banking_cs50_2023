@@ -1,6 +1,5 @@
 import { Box } from '@mui/material'
 import Header from '../components/Header'
-import PebblesVsChart from '../components/PebblesIncomeVsExpenseChart'
 import HouseVsChart from '../components/HouseholdMonthlyInVsOut'
 
 const HouseIncomeVsExpenses = () => {

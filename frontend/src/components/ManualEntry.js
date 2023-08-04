@@ -13,13 +13,13 @@ import CloseIcon from '@mui/icons-material/Close'
 import {
   CategoryList,
   SubcategoryHouse,
-  SubcategoryPebbles,
-  SubcategoryKidlet,
+  SubcategoryTshirt,
+  SubcategoryDaycare,
   SubcategoryMedical,
   SubcategoryMisc,
   SubcategoryIncome,
   SubcategorySavings,
-  SubcategoryRyanFreelance,
+  SubcategoryFreelance,
   SubcategoryBlank,
 } from '../data/CategoryData'
 
@@ -87,11 +87,11 @@ const ManualEntry = () => {
       if (selectedCategory === 'Household') {
         setSubcatData(SubcategoryHouse)
       }
-      if (selectedCategory === 'Pebbles & Pine') {
-        setSubcatData(SubcategoryPebbles)
+      if (selectedCategory === 'T-shirt Company') {
+        setSubcatData(SubcategoryTshirt)
       }
       if (selectedCategory === 'Kidlet Kare') {
-        setSubcatData(SubcategoryKidlet)
+        setSubcatData(SubcategoryDaycare)
       }
       if (selectedCategory === 'Medical') {
         setSubcatData(SubcategoryMedical)
@@ -105,8 +105,8 @@ const ManualEntry = () => {
       if (selectedCategory === 'Savings') {
         setSubcatData(SubcategorySavings)
       }
-      if (selectedCategory === 'Ryan Freelance') {
-        setSubcatData(SubcategoryRyanFreelance)
+      if (selectedCategory === 'Freelance') {
+        setSubcatData(SubcategoryFreelance)
       }
     }, [])
 

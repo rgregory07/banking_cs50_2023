@@ -64,10 +64,6 @@ const Dashboard = () => {
     setBankData(rawBankData)
     console.log('hit reset')
   }
-  // useEffect(() => {
-  //   setBankData(rawBankData)
-  // }, [clearDates])
-  console.log(bankData)
 
   const totalIncome = bankData
     .filter(function (item) {
@@ -83,50 +79,54 @@ const Dashboard = () => {
     .reduce((acc, value) => acc - parseFloat(value.amount), 0)
     .toLocaleString('en-US', { style: 'currency', currency: 'USD' })
 
-  const ppIncome = bankData
+  const tshirtIncome = bankData
     .filter(function (item) {
       return (
-        item.category === 'Income' && item.sub_category === 'Pebbles & Pine'
+        item.category === 'Income' && item.sub_category === 'T-shirt Company'
       )
     })
     .reduce((acc, value) => acc + parseFloat(value.amount), 0)
 
-  const incomeKKBrad = bankData.filter(function (transaction) {
-    return transaction.sub_category === 'KK - Brad & Lindsay'
+  const daycareIncomeP1 = bankData.filter(function (transaction) {
+    return transaction.sub_category === 'Daycare - Parent 1'
   })
-  const incomeKKJenn = bankData.filter(function (transaction) {
-    return transaction.sub_category === 'KK - Jenn & Matt'
+  const daycareIncomeP2 = bankData.filter(function (transaction) {
+    return transaction.sub_category === 'Daycare - Parent 2'
   })
-  const incomeKKErinne = bankData.filter(function (transaction) {
-    return transaction.sub_category === 'KK - Erinne'
+  const daycareIncomeP3 = bankData.filter(function (transaction) {
+    return transaction.sub_category === 'Daycare - Parent 3'
   })
 
-  const kkBradTotal = incomeKKBrad
+  const daycareP1Total = daycareIncomeP1
     .reduce((acc, value) => acc + parseFloat(value.amount), 0)
     .toLocaleString('en-US', { style: 'currency', currency: 'USD' })
 
-  const kkJennTotal = incomeKKJenn
+  const daycareP2Total = daycareIncomeP2
     .reduce((acc, value) => acc + parseFloat(value.amount), 0)
     .toLocaleString('en-US', { style: 'currency', currency: 'USD' })
 
-  const kkErinneTotal = incomeKKErinne
+  const daycareP3Total = daycareIncomeP3
     .reduce((acc, value) => acc + parseFloat(value.amount), 0)
     .toLocaleString('en-US', { style: 'currency', currency: 'USD' })
 
-  const incomeKKTotal = [...incomeKKBrad, ...incomeKKJenn, ...incomeKKErinne]
+  const daycareIncomeTotal = [
+    ...daycareIncomeP1,
+    ...daycareIncomeP2,
+    ...daycareIncomeP3,
+  ]
     .reduce((acc, value) => acc + parseFloat(value.amount), 0)
     .toLocaleString('en-US', { style: 'currency', currency: 'USD' })
 
-  const pebblesExpense = bankData.filter(function (item) {
-    return item.category === 'Pebbles & Pine' && item.amount !== null
+  const tshirtExpense = bankData.filter(function (item) {
+    return item.category === 'T-shirt Company' && item.amount !== null
   })
   // console.log(pebblesExpense)
-  const ppExpenseSum = pebblesExpense.reduce(
+  const tshirtExpenseSum = tshirtExpense.reduce(
     (acc, value) => acc + parseFloat(value.amount),
     0
   )
 
-  const ppProfit = ppIncome + ppExpenseSum
+  const tshirtProfit = tshirtIncome + tshirtExpenseSum
 
   return (
     <Box m='20px'>
@@ -197,7 +197,7 @@ const Dashboard = () => {
                 padding: '10px',
               }}
             >
-              T-shirt Business Name
+              T-shirt Company
             </Typography>
           </div>
 
@@ -205,7 +205,7 @@ const Dashboard = () => {
             <div>
               <OverviewDashboard
                 title='Income'
-                total={ppIncome.toLocaleString('en-US', {
+                total={tshirtIncome.toLocaleString('en-US', {
                   style: 'currency',
                   currency: 'USD',
                 })}
@@ -215,7 +215,7 @@ const Dashboard = () => {
             <div>
               <OverviewDashboard
                 title='Expenses'
-                total={ppExpenseSum.toLocaleString('en-US', {
+                total={tshirtExpenseSum.toLocaleString('en-US', {
                   style: 'currency',
                   currency: 'USD',
                 })}
@@ -225,11 +225,13 @@ const Dashboard = () => {
             <div>
               <OverviewDashboard
                 title='Profit / Loss'
-                total={ppProfit.toLocaleString('en-US', {
+                total={tshirtProfit.toLocaleString('en-US', {
                   style: 'currency',
                   currency: 'USD',
                 })}
-                color={ppProfit < 0 ? 'var(--clr-red)' : 'var(--clr-accent)'}
+                color={
+                  tshirtProfit < 0 ? 'var(--clr-red)' : 'var(--clr-accent)'
+                }
               />
             </div>
           </div>
@@ -257,28 +259,28 @@ const Dashboard = () => {
             <div>
               <OverviewDashboard
                 title='Parent 1'
-                total={kkBradTotal}
+                total={daycareP1Total}
                 color='var(--clr-accent)'
               />
             </div>
             <div>
               <OverviewDashboard
                 title='Parent 2'
-                total={kkJennTotal}
+                total={daycareP2Total}
                 color='var(--clr-accent)'
               />
             </div>
             <div>
               <OverviewDashboard
                 title='Parent 3'
-                total={kkErinneTotal}
+                total={daycareP3Total}
                 color='var(--clr-accent)'
               />
             </div>
             <div>
               <OverviewDashboard
                 title='Total'
-                total={incomeKKTotal}
+                total={daycareIncomeTotal}
                 color='var(--clr-accent)'
               />
             </div>

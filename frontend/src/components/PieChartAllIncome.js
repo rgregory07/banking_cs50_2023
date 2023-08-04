@@ -1,101 +1,101 @@
-import { ResponsivePie } from "@nivo/pie";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { ResponsivePie } from '@nivo/pie'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 const PieChartAllIncome = () => {
-  const [bankData, setBankData] = useState([]);
+  const [bankData, setBankData] = useState([])
 
   // API Get
   useEffect(() => {
-    axios.get("/api/bankdata-api/").then((response) => {
-      setBankData(response.data);
-    });
-  }, []);
+    axios.get('/api/bankdata-api/').then((response) => {
+      setBankData(response.data)
+    })
+  }, [])
 
-  const incomeBell = bankData.filter(function (transaction) {
-    return transaction.sub_category === "Ryan Bell Media";
-  });
-  const incomeKKBrad = bankData.filter(function (transaction) {
-    return transaction.sub_category === "KK - Brad & Lindsay";
-  });
-  const incomeKKJenn = bankData.filter(function (transaction) {
-    return transaction.sub_category === "KK - Jenn & Matt";
-  });
-  const incomeKKErinne = bankData.filter(function (transaction) {
-    return transaction.sub_category === "KK - Erinne";
-  });
-  const incomePP = bankData.filter(function (transaction) {
+  const incomeSalary = bankData.filter(function (transaction) {
+    return transaction.sub_category === 'Salary Income'
+  })
+  const incomeDaycare1 = bankData.filter(function (transaction) {
+    return transaction.sub_category === 'Daycare - Parent 1'
+  })
+  const incomeDaycare2 = bankData.filter(function (transaction) {
+    return transaction.sub_category === 'Daycare - Parent 2'
+  })
+  const incomeDaycare3 = bankData.filter(function (transaction) {
+    return transaction.sub_category === 'Daycare - Parent 3'
+  })
+  const incomeTshirt = bankData.filter(function (transaction) {
     return (
-      transaction.category === "Income" &&
-      transaction.sub_category === "Pebbles & Pine"
-    );
-  });
-  const incomeGov = bankData.filter(function (transaction) {
-    return transaction.sub_category === "Government";
-  });
-  const incomeRyFree = bankData.filter(function (transaction) {
-    return transaction.sub_category === "Ryan Freelance";
-  });
+      transaction.category === 'Income' &&
+      transaction.sub_category === 'T-shirt Company'
+    )
+  })
+  const incomeOther = bankData.filter(function (transaction) {
+    return transaction.sub_category === 'Other'
+  })
+  const incomeFree = bankData.filter(function (transaction) {
+    return transaction.sub_category === 'Freelance'
+  })
 
-  console.log(incomeBell);
-
-  const incomeBellTotal = incomeBell
+  const incomeSalaryTotal = incomeSalary
     .reduce((acc, value) => acc + parseFloat(value.amount), 0)
-    .toFixed(2);
+    .toFixed(2)
 
-  const incomePPTotal = incomePP
+  const incomeTshirtTotal = incomeTshirt
     .reduce((acc, value) => acc + parseFloat(value.amount), 0)
-    .toFixed(2);
+    .toFixed(2)
 
-  const incomeKKTotal = [...incomeKKBrad, ...incomeKKJenn, ...incomeKKErinne]
+  const incomeDaycareTotal = [
+    ...incomeDaycare1,
+    ...incomeDaycare2,
+    ...incomeDaycare3,
+  ]
     .reduce((acc, value) => acc + parseFloat(value.amount), 0)
-    .toFixed(2);
+    .toFixed(2)
 
-  const incomeGovTotal = incomeGov
+  const incomeOtherTotal = incomeOther
     .reduce((acc, value) => acc + parseFloat(value.amount), 0)
-    .toFixed(2);
+    .toFixed(2)
 
-  const incomeRyFreeTotal = incomeRyFree
+  const incomeFreeTotal = incomeFree
     .reduce((acc, value) => acc + parseFloat(value.amount), 0)
-    .toFixed(2);
-
-  console.log(incomePPTotal);
+    .toFixed(2)
 
   const data = [
     {
-      id: "Bell Media",
-      label: "Bell Media",
-      value: incomeBellTotal,
-      color: "var(--clr-bell)",
+      id: 'Salary Income',
+      label: 'Salary Income',
+      value: incomeSalaryTotal,
+      color: 'var(--clr-bell)',
     },
     {
-      id: "Pebbles & Pine",
-      label: "Pebbles & Pine",
-      value: incomePPTotal,
-      color: "var(--clr-pp)",
+      id: 'T-shirt Company',
+      label: 'T-shirt Company',
+      value: incomeTshirtTotal,
+      color: 'var(--clr-pp)',
     },
     {
-      id: "Kidlet Kare",
-      label: "Kidlet Kare",
-      value: incomeKKTotal,
-      color: "var(--clr-kk)",
+      id: 'Daycare',
+      label: 'Daycare',
+      value: incomeDaycareTotal,
+      color: 'var(--clr-kk)',
     },
     {
-      id: "Government",
-      label: "Government",
-      value: incomeGovTotal,
-      color: "var(--clr-gov)",
+      id: 'Other',
+      label: 'Other',
+      value: incomeOtherTotal,
+      color: 'var(--clr-gov)',
     },
     {
-      id: "Ryan Freelance",
-      label: "Ryan Freelance",
-      value: incomeRyFreeTotal,
-      color: "var(--clr-free)",
+      id: 'Freelance',
+      label: 'Freelance',
+      value: incomeFreeTotal,
+      color: 'var(--clr-free)',
     },
-  ];
+  ]
 
   return (
-    <div className="chart-container">
+    <div className='chart-container'>
       <ResponsivePie
         data={data}
         margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
@@ -104,11 +104,11 @@ const PieChartAllIncome = () => {
         cornerRadius={3}
         activeOuterRadiusOffset={8}
         colors={[
-          "var(--clr-bell)",
-          "var(--clr-pp)",
-          "var(--clr-kk)",
-          "var(--clr-gov)",
-          "var(--clr-free)",
+          'var(--clr-bell)',
+          'var(--clr-pp)',
+          'var(--clr-kk)',
+          'var(--clr-gov)',
+          'var(--clr-free)',
         ]}
         borderWidth={1}
         // borderColor={{
@@ -126,7 +126,7 @@ const PieChartAllIncome = () => {
         // arcLinkLabelsColor={{ from: 'color' }}
         arcLabelsSkipAngle={10}
         arcLabelsTextColor={{
-          from: "color",
+          from: 'color',
           modifiers: [
             // [
             //     'darker',
@@ -136,19 +136,19 @@ const PieChartAllIncome = () => {
         }}
         defs={[
           {
-            id: "dots",
-            type: "patternDots",
-            background: "inherit",
-            color: "rgba(255, 255, 255, 0.3)",
+            id: 'dots',
+            type: 'patternDots',
+            background: 'inherit',
+            color: 'rgba(255, 255, 255, 0.3)',
             size: 4,
             padding: 1,
             stagger: true,
           },
           {
-            id: "lines",
-            type: "patternLines",
-            background: "inherit",
-            color: "rgba(255, 255, 255, 0.3)",
+            id: 'lines',
+            type: 'patternLines',
+            background: 'inherit',
+            color: 'rgba(255, 255, 255, 0.3)',
             rotation: -45,
             lineWidth: 6,
             spacing: 10,
@@ -157,73 +157,73 @@ const PieChartAllIncome = () => {
         fill={[
           {
             match: {
-              id: "ruby",
+              id: 'ruby',
             },
-            id: "dots",
+            id: 'dots',
           },
           {
             match: {
-              id: "c",
+              id: 'c',
             },
-            id: "dots",
+            id: 'dots',
           },
           {
             match: {
-              id: "go",
+              id: 'go',
             },
-            id: "dots",
+            id: 'dots',
           },
           {
             match: {
-              id: "python",
+              id: 'python',
             },
-            id: "dots",
+            id: 'dots',
           },
           {
             match: {
-              id: "scala",
+              id: 'scala',
             },
-            id: "lines",
+            id: 'lines',
           },
           {
             match: {
-              id: "lisp",
+              id: 'lisp',
             },
-            id: "lines",
+            id: 'lines',
           },
           {
             match: {
-              id: "elixir",
+              id: 'elixir',
             },
-            id: "lines",
+            id: 'lines',
           },
           {
             match: {
-              id: "javascript",
+              id: 'javascript',
             },
-            id: "lines",
+            id: 'lines',
           },
         ]}
         legends={[
           {
-            anchor: "bottom",
-            direction: "row",
+            anchor: 'bottom',
+            direction: 'row',
             justify: false,
             translateX: 0,
             translateY: 56,
             itemsSpacing: 20,
             itemWidth: 100,
             itemHeight: 18,
-            itemTextColor: "#999",
-            itemDirection: "left-to-right",
+            itemTextColor: '#999',
+            itemDirection: 'left-to-right',
             itemOpacity: 1,
             symbolSize: 18,
-            symbolShape: "circle",
+            symbolShape: 'circle',
             effects: [
               {
-                on: "hover",
+                on: 'hover',
                 style: {
-                  itemTextColor: "#000",
+                  itemTextColor: '#000',
                 },
               },
             ],
@@ -231,7 +231,7 @@ const PieChartAllIncome = () => {
         ]}
       />
     </div>
-  );
-};
+  )
+}
 
-export default PieChartAllIncome;
+export default PieChartAllIncome

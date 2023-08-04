@@ -94,7 +94,7 @@ const HouseVsChart = () => {
     filteredDateJan
       .filter(function (item) {
         return (
-          item.category === 'Income' && item.sub_category !== 'Pebbles & Pine'
+          item.category === 'Income' && item.sub_category !== 'T-shirt Company'
         )
       })
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
@@ -105,10 +105,10 @@ const HouseVsChart = () => {
       .filter(function (item) {
         return (
           item.category === 'Household' ||
-          item.category === 'Kidlet Kare' ||
+          item.category === 'Daycare' ||
           item.category === 'Misc' ||
           item.category === 'Medical' ||
-          item.category === 'Ryan Freelance'
+          item.category === 'Freelance'
         )
       })
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
@@ -118,7 +118,7 @@ const HouseVsChart = () => {
     filteredDateFeb
       .filter(function (item) {
         return (
-          item.category === 'Income' && item.sub_category !== 'Pebbles & Pine'
+          item.category === 'Income' && item.sub_category !== 'T-shirt Company'
         )
       })
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
@@ -129,10 +129,10 @@ const HouseVsChart = () => {
       .filter(function (item) {
         return (
           item.category === 'Household' ||
-          item.category === 'Kidlet Kare' ||
+          item.category === 'Daycare' ||
           item.category === 'Misc' ||
           item.category === 'Medical' ||
-          item.category === 'Ryan Freelance'
+          item.category === 'Freelance'
         )
       })
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
@@ -142,7 +142,7 @@ const HouseVsChart = () => {
     filteredDateMarch
       .filter(function (item) {
         return (
-          item.category === 'Income' && item.sub_category !== 'Pebbles & Pine'
+          item.category === 'Income' && item.sub_category !== 'T-shirt Company'
         )
       })
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
@@ -153,10 +153,10 @@ const HouseVsChart = () => {
       .filter(function (item) {
         return (
           item.category === 'Household' ||
-          item.category === 'Kidlet Kare' ||
+          item.category === 'Daycare' ||
           item.category === 'Misc' ||
           item.category === 'Medical' ||
-          item.category === 'Ryan Freelance'
+          item.category === 'Freelance'
         )
       })
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
@@ -166,7 +166,7 @@ const HouseVsChart = () => {
     filteredDateApril
       .filter(function (item) {
         return (
-          item.category === 'Income' && item.sub_category !== 'Pebbles & Pine'
+          item.category === 'Income' && item.sub_category !== 'T-shirt Company'
         )
       })
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
@@ -177,10 +177,10 @@ const HouseVsChart = () => {
       .filter(function (item) {
         return (
           item.category === 'Household' ||
-          item.category === 'Kidlet Kare' ||
+          item.category === 'Daycare' ||
           item.category === 'Misc' ||
           item.category === 'Medical' ||
-          item.category === 'Ryan Freelance'
+          item.category === 'Freelance'
         )
       })
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
@@ -190,7 +190,7 @@ const HouseVsChart = () => {
     filteredDateMay
       .filter(function (item) {
         return (
-          item.category === 'Income' && item.sub_category !== 'Pebbles & Pine'
+          item.category === 'Income' && item.sub_category !== 'T-shirt Company'
         )
       })
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
@@ -201,10 +201,10 @@ const HouseVsChart = () => {
       .filter(function (item) {
         return (
           item.category === 'Household' ||
-          item.category === 'Kidlet Kare' ||
+          item.category === 'Daycare' ||
           item.category === 'Misc' ||
           item.category === 'Medical' ||
-          item.category === 'Ryan Freelance'
+          item.category === 'Freelance'
         )
       })
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
@@ -214,7 +214,7 @@ const HouseVsChart = () => {
     filteredDateJune
       .filter(function (item) {
         return (
-          item.category === 'Income' && item.sub_category !== 'Pebbles & Pine'
+          item.category === 'Income' && item.sub_category !== 'T-shirt Company'
         )
       })
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
@@ -225,10 +225,10 @@ const HouseVsChart = () => {
       .filter(function (item) {
         return (
           item.category === 'Household' ||
-          item.category === 'Kidlet Kare' ||
+          item.category === 'Daycare' ||
           item.category === 'Misc' ||
           item.category === 'Medical' ||
-          item.category === 'Ryan Freelance'
+          item.category === 'Freelance'
         )
       })
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
@@ -240,7 +240,7 @@ const HouseVsChart = () => {
     filteredDateJuly
       .filter(function (item) {
         return (
-          item.category === 'Income' && item.sub_category !== 'Pebbles & Pine'
+          item.category === 'Income' && item.sub_category !== 'T-shirt Company'
         )
       })
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
@@ -251,10 +251,10 @@ const HouseVsChart = () => {
       .filter(function (item) {
         return (
           item.category === 'Household' ||
-          item.category === 'Kidlet Kare' ||
+          item.category === 'Daycare' ||
           item.category === 'Misc' ||
           item.category === 'Medical' ||
-          item.category === 'Ryan Freelance'
+          item.category === 'Freelance'
         )
       })
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
@@ -264,7 +264,7 @@ const HouseVsChart = () => {
     filteredDateAug
       .filter(function (item) {
         return (
-          item.category === 'Income' && item.sub_category !== 'Pebbles & Pine'
+          item.category === 'Income' && item.sub_category !== 'T-shirt Company'
         )
       })
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
@@ -275,10 +275,10 @@ const HouseVsChart = () => {
       .filter(function (item) {
         return (
           item.category === 'Household' ||
-          item.category === 'Kidlet Kare' ||
+          item.category === 'Daycare' ||
           item.category === 'Misc' ||
           item.category === 'Medical' ||
-          item.category === 'Ryan Freelance'
+          item.category === 'Freelance'
         )
       })
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
@@ -288,7 +288,7 @@ const HouseVsChart = () => {
     filteredDateSept
       .filter(function (item) {
         return (
-          item.category === 'Income' && item.sub_category !== 'Pebbles & Pine'
+          item.category === 'Income' && item.sub_category !== 'T-shirt Company'
         )
       })
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
@@ -299,10 +299,10 @@ const HouseVsChart = () => {
       .filter(function (item) {
         return (
           item.category === 'Household' ||
-          item.category === 'Kidlet Kare' ||
+          item.category === 'Daycare' ||
           item.category === 'Misc' ||
           item.category === 'Medical' ||
-          item.category === 'Ryan Freelance'
+          item.category === 'Freelance'
         )
       })
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
@@ -312,7 +312,7 @@ const HouseVsChart = () => {
     filteredDateOct
       .filter(function (item) {
         return (
-          item.category === 'Income' && item.sub_category !== 'Pebbles & Pine'
+          item.category === 'Income' && item.sub_category !== 'T-shirt Company'
         )
       })
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
@@ -323,10 +323,10 @@ const HouseVsChart = () => {
       .filter(function (item) {
         return (
           item.category === 'Household' ||
-          item.category === 'Kidlet Kare' ||
+          item.category === 'Daycare' ||
           item.category === 'Misc' ||
           item.category === 'Medical' ||
-          item.category === 'Ryan Freelance'
+          item.category === 'Freelance'
         )
       })
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
@@ -336,7 +336,7 @@ const HouseVsChart = () => {
     filteredDateNov
       .filter(function (item) {
         return (
-          item.category === 'Income' && item.sub_category !== 'Pebbles & Pine'
+          item.category === 'Income' && item.sub_category !== 'T-shirt Company'
         )
       })
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
@@ -347,10 +347,10 @@ const HouseVsChart = () => {
       .filter(function (item) {
         return (
           item.category === 'Household' ||
-          item.category === 'Kidlet Kare' ||
+          item.category === 'Daycare' ||
           item.category === 'Misc' ||
           item.category === 'Medical' ||
-          item.category === 'Ryan Freelance'
+          item.category === 'Freelance'
         )
       })
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
@@ -360,7 +360,7 @@ const HouseVsChart = () => {
     filteredDateDec
       .filter(function (item) {
         return (
-          item.category === 'Income' && item.sub_category !== 'Pebbles & Pine'
+          item.category === 'Income' && item.sub_category !== 'T-shirt Company'
         )
       })
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
@@ -371,10 +371,10 @@ const HouseVsChart = () => {
       .filter(function (item) {
         return (
           item.category === 'Household' ||
-          item.category === 'Kidlet Kare' ||
+          item.category === 'Daycare' ||
           item.category === 'Misc' ||
           item.category === 'Medical' ||
-          item.category === 'Ryan Freelance'
+          item.category === 'Freelance'
         )
       })
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)

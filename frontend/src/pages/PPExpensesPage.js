@@ -1,19 +1,19 @@
-import { Box } from "@mui/material";
-import Header from "../components/Header";
-import PebblesVsChart from "../components/PebblesIncomeVsExpenseChart";
+import { Box } from '@mui/material'
+import Header from '../components/Header'
+import TshirtVsChart from '../components/TshirtIncomeVsExpenseChart'
 
 const PPExpenses = () => {
   return (
-    <Box m="20px">
+    <Box m='20px'>
       <Header
-        title="Pebbles & Pine"
-        subTitle="Income & Expenses | Monthy Totals"
+        title='T-Shirt Company'
+        subTitle='Income & Expenses | Monthy Totals'
       />
-      <Box height="75vh">
-        <PebblesVsChart />
+      <Box height='75vh'>
+        <TshirtVsChart />
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default PPExpenses;
+export default PPExpenses

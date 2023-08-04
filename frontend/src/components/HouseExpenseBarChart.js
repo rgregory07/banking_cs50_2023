@@ -810,402 +810,402 @@ const HomeExpenseBar = () => {
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  // Bell - Cell
-  const bellJan =
+  // Cell
+  const cellJan =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-01-01' &&
           item.transaction_date <= '2023-01-31'
       )
-      .filter((item) => item.sub_category === 'Bell - Cell')
+      .filter((item) => item.sub_category === 'Cell')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const bellFeb =
+  const cellFeb =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-02-01' &&
           item.transaction_date <= '2023-02-31'
       )
-      .filter((item) => item.sub_category === 'Bell - Cell')
+      .filter((item) => item.sub_category === 'Cell')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const bellMar =
+  const cellMar =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-03-01' &&
           item.transaction_date <= '2023-03-31'
       )
-      .filter((item) => item.sub_category === 'Bell - Cell')
+      .filter((item) => item.sub_category === 'Cell')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const bellApril =
+  const cellApril =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-04-01' &&
           item.transaction_date <= '2023-04-31'
       )
-      .filter((item) => item.sub_category === 'Bell - Cell')
+      .filter((item) => item.sub_category === 'Cell')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const bellMay =
+  const cellMay =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-05-01' &&
           item.transaction_date <= '2023-05-31'
       )
-      .filter((item) => item.sub_category === 'Bell - Cell')
+      .filter((item) => item.sub_category === 'Cell')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const bellJune =
+  const cellJune =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-06-01' &&
           item.transaction_date <= '2023-06-31'
       )
-      .filter((item) => item.sub_category === 'Bell - Cell')
+      .filter((item) => item.sub_category === 'Cell')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const bellJuly =
+  const cellJuly =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-07-01' &&
           item.transaction_date <= '2023-07-31'
       )
-      .filter((item) => item.sub_category === 'Bell - Cell')
+      .filter((item) => item.sub_category === 'Cell')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const bellAug =
+  const cellAug =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-08-01' &&
           item.transaction_date <= '2023-08-31'
       )
-      .filter((item) => item.sub_category === 'Bell - Cell')
+      .filter((item) => item.sub_category === 'Cell')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const bellSept =
+  const cellSept =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-09-01' &&
           item.transaction_date <= '2023-09-31'
       )
-      .filter((item) => item.sub_category === 'Bell - Cell')
+      .filter((item) => item.sub_category === 'Cell')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const bellOct =
+  const cellOct =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-10-01' &&
           item.transaction_date <= '2023-10-31'
       )
-      .filter((item) => item.sub_category === 'Bell - Cell')
+      .filter((item) => item.sub_category === 'Cell')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const bellNov =
+  const cellNov =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-11-01' &&
           item.transaction_date <= '2023-11-31'
       )
-      .filter((item) => item.sub_category === 'Bell - Cell')
+      .filter((item) => item.sub_category === 'Cell')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const bellDec =
+  const cellDec =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-12-01' &&
           item.transaction_date <= '2023-12-31'
       )
-      .filter((item) => item.sub_category === 'Bell - Cell')
+      .filter((item) => item.sub_category === 'Cell')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  // Rogers
-  const rogersJan =
+  // Cable TV
+  const cableTVJan =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-01-01' &&
           item.transaction_date <= '2023-01-31'
       )
-      .filter((item) => item.sub_category === 'Rogers')
+      .filter((item) => item.sub_category === 'Cable TV')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const rogersFeb =
+  const cableTVFeb =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-02-01' &&
           item.transaction_date <= '2023-02-31'
       )
-      .filter((item) => item.sub_category === 'Rogers')
+      .filter((item) => item.sub_category === 'Cable TV')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const rogersMar =
+  const cableTVMar =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-03-01' &&
           item.transaction_date <= '2023-03-31'
       )
-      .filter((item) => item.sub_category === 'Rogers')
+      .filter((item) => item.sub_category === 'Cable TV')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const rogersApril =
+  const cableTVApril =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-04-01' &&
           item.transaction_date <= '2023-04-31'
       )
-      .filter((item) => item.sub_category === 'Rogers')
+      .filter((item) => item.sub_category === 'Cable TV')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const rogersMay =
+  const cableTVMay =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-05-01' &&
           item.transaction_date <= '2023-05-31'
       )
-      .filter((item) => item.sub_category === 'Rogers')
+      .filter((item) => item.sub_category === 'Cable TV')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const rogersJune =
+  const cableTVJune =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-06-01' &&
           item.transaction_date <= '2023-06-31'
       )
-      .filter((item) => item.sub_category === 'Rogers')
+      .filter((item) => item.sub_category === 'Cable TV')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const rogersJuly =
+  const cableTVJuly =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-07-01' &&
           item.transaction_date <= '2023-07-31'
       )
-      .filter((item) => item.sub_category === 'Rogers')
+      .filter((item) => item.sub_category === 'Cable TV')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const rogersAug =
+  const cableTVAug =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-08-01' &&
           item.transaction_date <= '2023-08-31'
       )
-      .filter((item) => item.sub_category === 'Rogers')
+      .filter((item) => item.sub_category === 'Cable TV')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const rogersSept =
+  const cableTVSept =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-09-01' &&
           item.transaction_date <= '2023-09-31'
       )
-      .filter((item) => item.sub_category === 'Rogers')
+      .filter((item) => item.sub_category === 'Cable TV')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const rogersOct =
+  const cableTVOct =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-10-01' &&
           item.transaction_date <= '2023-10-31'
       )
-      .filter((item) => item.sub_category === 'Rogers')
+      .filter((item) => item.sub_category === 'Cable TV')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const rogersNov =
+  const cableTVNov =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-11-01' &&
           item.transaction_date <= '2023-11-31'
       )
-      .filter((item) => item.sub_category === 'Rogers')
+      .filter((item) => item.sub_category === 'Cable TV')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const rogersDec =
+  const cableTVDec =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-12-01' &&
           item.transaction_date <= '2023-12-31'
       )
-      .filter((item) => item.sub_category === 'Rogers')
+      .filter((item) => item.sub_category === 'Cable TV')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  // Enbridge Gas
-  const enbridgeGasJan =
+  // Gas
+  const gasJan =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-01-01' &&
           item.transaction_date <= '2023-01-31'
       )
-      .filter((item) => item.sub_category === 'Enbridge Gas')
+      .filter((item) => item.sub_category === 'Gas')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const enbridgeGasFeb =
+  const gasFeb =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-02-01' &&
           item.transaction_date <= '2023-02-31'
       )
-      .filter((item) => item.sub_category === 'Enbridge Gas')
+      .filter((item) => item.sub_category === 'Gas')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const enbridgeGasMar =
+  const gasMar =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-03-01' &&
           item.transaction_date <= '2023-03-31'
       )
-      .filter((item) => item.sub_category === 'Enbridge Gas')
+      .filter((item) => item.sub_category === 'Gas')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const enbridgeGasApril =
+  const gasApril =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-04-01' &&
           item.transaction_date <= '2023-04-31'
       )
-      .filter((item) => item.sub_category === 'Enbridge Gas')
+      .filter((item) => item.sub_category === 'Gas')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const enbridgeGasMay =
+  const gasMay =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-05-01' &&
           item.transaction_date <= '2023-05-31'
       )
-      .filter((item) => item.sub_category === 'Enbridge Gas')
+      .filter((item) => item.sub_category === 'Gas')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const enbridgeGasJune =
+  const gasJune =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-06-01' &&
           item.transaction_date <= '2023-06-31'
       )
-      .filter((item) => item.sub_category === 'Enbridge Gas')
+      .filter((item) => item.sub_category === 'Gas')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const enbridgeGasJuly =
+  const gasJuly =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-07-01' &&
           item.transaction_date <= '2023-07-31'
       )
-      .filter((item) => item.sub_category === 'Enbridge Gas')
+      .filter((item) => item.sub_category === 'Gas')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const enbridgeGasAug =
+  const gasAug =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-08-01' &&
           item.transaction_date <= '2023-08-31'
       )
-      .filter((item) => item.sub_category === 'Enbridge Gas')
+      .filter((item) => item.sub_category === 'Gas')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const enbridgeGasSept =
+  const gasSept =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-09-01' &&
           item.transaction_date <= '2023-09-31'
       )
-      .filter((item) => item.sub_category === 'Enbridge Gas')
+      .filter((item) => item.sub_category === 'Gas')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const enbridgeGasOct =
+  const gasOct =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-10-01' &&
           item.transaction_date <= '2023-10-31'
       )
-      .filter((item) => item.sub_category === 'Enbridge Gas')
+      .filter((item) => item.sub_category === 'Gas')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const enbridgeGasNov =
+  const gasNov =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-11-01' &&
           item.transaction_date <= '2023-11-31'
       )
-      .filter((item) => item.sub_category === 'Enbridge Gas')
+      .filter((item) => item.sub_category === 'Gas')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const enbridgeGasDec =
+  const gasDec =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-12-01' &&
           item.transaction_date <= '2023-12-31'
       )
-      .filter((item) => item.sub_category === 'Enbridge Gas')
+      .filter((item) => item.sub_category === 'Gas')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
@@ -1342,136 +1342,136 @@ const HomeExpenseBar = () => {
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  // Reliance Water Heater
-  const relianceJan =
+  // Water Heater
+  const waterHeaterJan =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-01-01' &&
           item.transaction_date <= '2023-01-31'
       )
-      .filter((item) => item.sub_category === 'Reliance Water Heater')
+      .filter((item) => item.sub_category === 'Water Heater')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const relianceFeb =
+  const waterHeaterFeb =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-02-01' &&
           item.transaction_date <= '2023-02-31'
       )
-      .filter((item) => item.sub_category === 'Reliance Water Heater')
+      .filter((item) => item.sub_category === 'Water Heater')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const relianceMar =
+  const waterHeaterMar =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-03-01' &&
           item.transaction_date <= '2023-03-31'
       )
-      .filter((item) => item.sub_category === 'Reliance Water Heater')
+      .filter((item) => item.sub_category === 'Water Heater')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const relianceApril =
+  const waterHeaterApril =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-04-01' &&
           item.transaction_date <= '2023-04-31'
       )
-      .filter((item) => item.sub_category === 'Reliance Water Heater')
+      .filter((item) => item.sub_category === 'Water Heater')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const relianceMay =
+  const waterHeaterMay =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-05-01' &&
           item.transaction_date <= '2023-05-31'
       )
-      .filter((item) => item.sub_category === 'Reliance Water Heater')
+      .filter((item) => item.sub_category === 'Water Heater')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const relianceJune =
+  const waterHeaterJune =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-06-01' &&
           item.transaction_date <= '2023-06-31'
       )
-      .filter((item) => item.sub_category === 'Reliance Water Heater')
+      .filter((item) => item.sub_category === 'Water Heater')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const relianceJuly =
+  const waterHeaterJuly =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-07-01' &&
           item.transaction_date <= '2023-07-31'
       )
-      .filter((item) => item.sub_category === 'Reliance Water Heater')
+      .filter((item) => item.sub_category === 'Water Heater')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const relianceAug =
+  const waterHeaterAug =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-08-01' &&
           item.transaction_date <= '2023-08-31'
       )
-      .filter((item) => item.sub_category === 'Reliance Water Heater')
+      .filter((item) => item.sub_category === 'Water Heater')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const relianceSept =
+  const waterHeaterSept =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-09-01' &&
           item.transaction_date <= '2023-09-31'
       )
-      .filter((item) => item.sub_category === 'Reliance Water Heater')
+      .filter((item) => item.sub_category === 'Water Heater')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const relianceOct =
+  const waterHeaterOct =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-10-01' &&
           item.transaction_date <= '2023-10-31'
       )
-      .filter((item) => item.sub_category === 'Reliance Water Heater')
+      .filter((item) => item.sub_category === 'Water Heater')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const relianceNov =
+  const waterHeaterNov =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-11-01' &&
           item.transaction_date <= '2023-11-31'
       )
-      .filter((item) => item.sub_category === 'Reliance Water Heater')
+      .filter((item) => item.sub_category === 'Water Heater')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
-  const relianceDec =
+  const waterHeaterDec =
     bankData
       .filter(
         (item) =>
           item.transaction_date >= '2023-12-01' &&
           item.transaction_date <= '2023-12-31'
       )
-      .filter((item) => item.sub_category === 'Reliance Water Heater')
+      .filter((item) => item.sub_category === 'Water Heater')
       .reduce((acc, value) => acc + parseFloat(value.amount), 0)
       .toFixed(0) * -1
 
@@ -1617,11 +1617,11 @@ const HomeExpenseBar = () => {
       Mortgage: mortgageJan,
       'Gas & Auto': gasAutoJan,
       Groceries: groceriesJan,
-      'Bell - Cell': bellJan,
-      Rogers: rogersJan,
-      'Enbridge Gas': enbridgeGasJan,
+      Cell: cellJan,
+      'Cable TV': cableTVJan,
+      Gas: gasJan,
       'Hydro Misc': hydroJan,
-      'Reliance Water Heater': relianceJan,
+      'Water Heater': waterHeaterJan,
       'House Alarm': houseAlarmJan,
     },
     {
@@ -1632,11 +1632,11 @@ const HomeExpenseBar = () => {
       Mortgage: mortgageFeb,
       'Gas & Auto': gasAutoFeb,
       Groceries: groceriesFeb,
-      'Bell - Cell': bellFeb,
-      Rogers: rogersFeb,
-      'Enbridge Gas': enbridgeGasFeb,
+      Cell: cellFeb,
+      'Cable TV': cableTVFeb,
+      Gas: gasFeb,
       'Hydro Misc': hydroFeb,
-      'Reliance Water Heater': relianceFeb,
+      'Water Heater': waterHeaterFeb,
       'House Alarm': houseAlarmFeb,
     },
     {
@@ -1647,11 +1647,11 @@ const HomeExpenseBar = () => {
       Mortgage: mortgageMar,
       'Gas & Auto': gasAutoMar,
       Groceries: groceriesMar,
-      'Bell - Cell': bellMar,
-      Rogers: rogersMar,
-      'Enbridge Gas': enbridgeGasMar,
+      Cell: cellMar,
+      'Cable TV': cableTVMar,
+      Gas: gasMar,
       'Hydro Misc': hydroMar,
-      'Reliance Water Heater': relianceMar,
+      'Water Heater': waterHeaterMar,
       'House Alarm': houseAlarmMar,
     },
     {
@@ -1662,11 +1662,11 @@ const HomeExpenseBar = () => {
       Mortgage: mortgageApril,
       'Gas & Auto': gasAutoApril,
       Groceries: groceriesApril,
-      'Bell - Cell': bellApril,
-      Rogers: rogersApril,
-      'Enbridge Gas': enbridgeGasApril,
+      Cell: cellApril,
+      'Cable TV': cableTVApril,
+      Gas: gasApril,
       'Hydro Misc': hydroApril,
-      'Reliance Water Heater': relianceApril,
+      'Water Heater': waterHeaterApril,
       'House Alarm': houseAlarmApril,
     },
     {
@@ -1677,11 +1677,11 @@ const HomeExpenseBar = () => {
       Mortgage: mortgageMay,
       'Gas & Auto': gasAutoMay,
       Groceries: groceriesMay,
-      'Bell - Cell': bellMay,
-      Rogers: rogersMay,
-      'Enbridge Gas': enbridgeGasMay,
+      Cell: cellMay,
+      'Cable TV': cableTVMay,
+      Gas: gasMay,
       'Hydro Misc': hydroMay,
-      'Reliance Water Heater': relianceMay,
+      'Water Heater': waterHeaterMay,
       'House Alarm': houseAlarmMay,
     },
     {
@@ -1692,11 +1692,11 @@ const HomeExpenseBar = () => {
       Mortgage: mortgageJune,
       'Gas & Auto': gasAutoJune,
       Groceries: groceriesJune,
-      'Bell - Cell': bellJune,
-      Rogers: rogersJune,
-      'Enbridge Gas': enbridgeGasJune,
+      Cell: cellJune,
+      'Cable TV': cableTVJune,
+      Gas: gasJune,
       'Hydro Misc': hydroJune,
-      'Reliance Water Heater': relianceJune,
+      'Water Heater': waterHeaterJune,
       'House Alarm': houseAlarmJune,
     },
     {
@@ -1707,11 +1707,11 @@ const HomeExpenseBar = () => {
       Mortgage: mortgageJuly,
       'Gas & Auto': gasAutoJuly,
       Groceries: groceriesJuly,
-      'Bell - Cell': bellJuly,
-      Rogers: rogersJuly,
-      'Enbridge Gas': enbridgeGasJuly,
+      Cell: cellJuly,
+      'Cable TV': cableTVJuly,
+      Gas: gasJuly,
       'Hydro Misc': hydroJuly,
-      'Reliance Water Heater': relianceJuly,
+      'Water Heater': waterHeaterJuly,
       'House Alarm': houseAlarmJuly,
     },
     {
@@ -1722,11 +1722,11 @@ const HomeExpenseBar = () => {
       Mortgage: mortgageAug,
       'Gas & Auto': gasAutoAug,
       Groceries: groceriesAug,
-      'Bell - Cell': bellAug,
-      Rogers: rogersAug,
-      'Enbridge Gas': enbridgeGasAug,
+      Cell: cellAug,
+      'Cable TV': cableTVAug,
+      Gas: gasAug,
       'Hydro Misc': hydroAug,
-      'Reliance Water Heater': relianceAug,
+      'Water Heater': waterHeaterAug,
       'House Alarm': houseAlarmAug,
     },
     {
@@ -1737,11 +1737,11 @@ const HomeExpenseBar = () => {
       Mortgage: mortgageSept,
       'Gas & Auto': gasAutoSept,
       Groceries: groceriesSept,
-      'Bell - Cell': bellSept,
-      Rogers: rogersSept,
-      'Enbridge Gas': enbridgeGasSept,
+      Cell: cellSept,
+      'Cable TV': cableTVSept,
+      Gas: gasSept,
       'Hydro Misc': hydroSept,
-      'Reliance Water Heater': relianceSept,
+      'Water Heater': waterHeaterSept,
       'House Alarm': houseAlarmSept,
     },
     {
@@ -1752,11 +1752,11 @@ const HomeExpenseBar = () => {
       Mortgage: mortgageOct,
       'Gas & Auto': gasAutoOct,
       Groceries: groceriesOct,
-      'Bell - Cell': bellOct,
-      Rogers: rogersOct,
-      'Enbridge Gas': enbridgeGasOct,
+      Cell: cellOct,
+      'Cable TV': cableTVOct,
+      Gas: gasOct,
       'Hydro Misc': hydroOct,
-      'Reliance Water Heater': relianceOct,
+      'Water Heater': waterHeaterOct,
       'House Alarm': houseAlarmOct,
     },
     {
@@ -1767,11 +1767,11 @@ const HomeExpenseBar = () => {
       Mortgage: mortgageNov,
       'Gas & Auto': gasAutoNov,
       Groceries: groceriesNov,
-      'Bell - Cell': bellNov,
-      Rogers: rogersNov,
-      'Enbridge Gas': enbridgeGasNov,
+      Cell: cellNov,
+      'Cable TV': cableTVNov,
+      Gas: gasNov,
       'Hydro Misc': hydroNov,
-      'Reliance Water Heater': relianceNov,
+      'Water Heater': waterHeaterNov,
       'House Alarm': houseAlarmNov,
     },
     {
@@ -1782,11 +1782,11 @@ const HomeExpenseBar = () => {
       Mortgage: mortgageDec,
       'Gas & Auto': gasAutoDec,
       Groceries: groceriesDec,
-      'Bell - Cell': bellDec,
-      Rogers: rogersDec,
-      'Enbridge Gas': enbridgeGasDec,
+      Cell: cellDec,
+      'Cable TV': cableTVDec,
+      Gas: gasDec,
       'Hydro Misc': hydroDec,
-      'Reliance Water Heater': relianceDec,
+      'Water Heater': waterHeaterDec,
       'House Alarm': houseAlarmDec,
     },
   ]
@@ -1802,11 +1802,11 @@ const HomeExpenseBar = () => {
           'Mortgage',
           'Gas & Auto',
           'Groceries',
-          'Bell - Cell',
-          'Rogers',
-          'Enbridge Gas',
+          'Cell',
+          'Cable TV',
+          'Gas',
           'Hydro',
-          'Reliance Water Heater',
+          'Water Heater',
           'House Alarm',
         ]}
         indexBy='Date'
