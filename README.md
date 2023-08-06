@@ -1,20 +1,28 @@
-# Personal Finance App - CS50 Final Project
+# Personal Finance Tracker - CS50 Final Project
 
 #### Video Demo: <URL HERE>
 
 #### Description:
 
-This web app was created for tracking and categorizing personal finances.
+This web app was created for tracking and categorizing personal finances. I created it to assist with doing my taxes. Having 4 sources of income & expenses, it can get tricky keeping track of everyting. I was used to use Quickbooks Online and it was very helpful. That is why I created this app, as a challenge for myself, while also creating something I will actully use on a regular basis.
 
-## Overview
+Since this was a learning experiment, the entire site is not totally consistent. Some sections use MUI Box & Typography with inline styling, and others use div and className. I like to experiment.
 
-This Personal Finance App is built using React / Django / PostgreSQL.
+## How it's made
 
-## About The Project
+The Backend was created using Django, manly for creating models, serializers, and APIs with the Database.
 
-I used to use Quickbooks Online for tracking my finances, and it was a very helpfull tool in order to see Income/Expense amounts. I also used it for tax season to organize expenses. That is why I created this app, as a challenge for myself, while also creating something I will actully use on a regular basis.
+The Database was created using PostreSQL
 
-This app does not have all the functionality of Quickbooks. There is a lot of room to expand but this is at a stage that meets my needs.
+The Frontend uses React which does the majority of the heavy lifting. I did use some MUI Material elements including the sidebar/drawer, and all the icons.
+
+The Bank Data page uses AG-Grid for displaying all the information, with some customized columns to dynamically set categories and subcategories, along with adding notes. The date/description/amount cannot be edited, this is to avoid making any mistakes by accident and overwiting the database with incorrect information.
+
+The Chart visualizations were brought to life using Nivo. https://nivo.rocks/
+
+The CSV upload page uses Papaparse for parsing the data to be displayed.
+
+I used SASS for most of the CSS (some inline) and I used CSS Variables for most colors so it can be updated easily.
 
 ## Features
 
@@ -55,7 +63,7 @@ If you need to add a transaction that is not on your bank statements (eg. cash t
 
 ### CSV Upload
 
-Drag and Drop a csv file from your bank account into the app, and you can view the transactions, delete unwanted rows, then save to the database.
+Drag and Drop a csv file from your bank account into the app. Before committing this to the database, you can view the transactions and delete any unwanted rows, and finally save to the database when ready.
 
 ### Charts
 
@@ -63,9 +71,13 @@ A few charts to help visualize income vs expenses, or a breakdown of each expens
 
 ## Future Features
 
-### User Model
+### Custom User Model
 
-I have started working on a user model in order to provide login/privacy. The Front End logic has been written and does include authorization, errors, etc, but I have not yet created a proper user model, which will also require some refactoring of the bank data to keep it related to a specific user.
+I have started working on a user model in order to provide login/privacy. The Front End logic has been written and does include password validation using REGEX, errors, etc, but I have not yet created a proper user model, which will also require some refactoring of the bank data to keep it related to a specific user.
+
+### Autentication
+
+I will be adding proper JWT authentication through React that will use Access Tokens to ensure the signed in user only has access to the data/pages they are supposed to.
 
 ### Custom Category Names
 
@@ -74,3 +86,7 @@ Currently the Category and Subcategory lists are hard coded. I plan to add the a
 ### Customize Dashboard
 
 I plan to give the end user the ability to customize the dashboard to sort and display the Categories or their choosing.
+
+### Dark Mode
+
+Cause who doesn't love dark mode.

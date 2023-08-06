@@ -97,7 +97,9 @@ const Upload = () => {
           url,
           {
             //   account: data.account,
-            transaction_date: `${convertDate.getFullYear()}-${convertDate.getMonth()}-${convertDate.getDate()}`,
+            transaction_date: `${convertDate.getFullYear()}-${
+              convertDate.getMonth() + 1
+            }-${convertDate.getDate()}`,
             description_1: item.Description,
             //   description_2: null,
             amount: item.Amount,
